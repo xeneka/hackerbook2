@@ -16,6 +16,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        
+        // Inicio Descarga del JSON
+        
+        print("Iniciando las descarga del ficheros");
+        
+        let datos:DownloadUrlFile = DownloadUrlFile("https://t.co/K9ziV0z3SJ");
+        datos.downloadAsyncFile()
+        
+        print("Ficheros descargado");
+        
+        
         return true
     }
 
