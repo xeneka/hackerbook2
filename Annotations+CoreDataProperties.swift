@@ -2,7 +2,7 @@
 //  Annotations+CoreDataProperties.swift
 //  hackerbookv2
 //
-//  Created by Antonio Benavente del Moral on 12/9/16.
+//  Created by Antonio Benavente del Moral on 18/9/16.
 //  Copyright © 2016 Antonio Benavente del Moral. All rights reserved.
 //
 
@@ -19,8 +19,8 @@ extension Annotations {
     @NSManaged public var annontation: String?
     @NSManaged public var dateCreate: NSDate?
     @NSManaged public var dateModification: NSDate?
-    @NSManaged public var image: Image?
     @NSManaged public var books: Books?
     @NSManaged public var geo: Geo?
+    @NSManaged public var image: Image?
 
 }

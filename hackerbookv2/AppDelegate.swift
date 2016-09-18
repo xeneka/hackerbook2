@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import CoreData
+
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -17,12 +19,34 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         
+        
+        let model = CoreDataStack(modelName: "Model")
+        
+        // Verifico si ya la url ya se ha descargado, si no se ha descargado lo descargo 
+        
+        
         // Inicio Descarga del JSON
         
-        print("Iniciando las descarga del ficheros");
-        
+        // Defino la Url sobre la que se tiene que descargar el fichero
         let datos:DownloadUrlFile = DownloadUrlFile("https://t.co/K9ziV0z3SJ");
-        datos.downloadAsyncFile()
+        
+        // Hago la descarga del fichero en segundo plano y le paso una trailing closure decodifica el JSON en este caso
+        datos.doSomeThingWithDownLoadFile { (parametro: Any) in
+            
+            
+            do {
+            let jsonDicts = try JSONSerialization.jsonObject(with: parametro as! Data, options: JSONSerialization.ReadingOptions.mutableContainers) as? JSONArray
+                
+                try decode(books: jsonDicts!)
+                print(jsonDicts)
+                
+            }catch{
+                print("Error")
+            }
+        }
+        
+        
+        
         
         print("Ficheros descargado");
         

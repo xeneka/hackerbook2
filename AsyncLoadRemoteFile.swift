@@ -27,6 +27,7 @@ class DownloadUrlFile{
     
     init(_ url:URL){
         self.url = url
+    
     }
     
     init(_ url:String){
@@ -56,13 +57,39 @@ class DownloadUrlFile{
             }
         }
         
-        
-        
-        
     }
     
     
+    public func doSomeThingWithDownLoadFile(_ completion:@escaping (_ result:Any)->()){
+    
+        DispatchQueue.global(qos: .default).async {
+            
+            do{
+                
+                try self._data = Data(contentsOf: self.url)
+                
+                DispatchQueue.main.async {
+                    
+                    completion(self._data);
+                    
+                }
+                
+            }catch{
+                print("Error")
+            }
+        }
+    
+    }
+    
+    
+    
+    
+    
 }
+//MARK: - notificaciones 
+
+
+
 
 
 //MARK: - Delegate
@@ -73,7 +100,7 @@ public protocol DownloadUrlFileDelegate:class{
    func DownloadUrlFile(_ sender: DownloadUrlFile, shouldStartLoadingFrom url: URL )->Bool
    func DownloadUrlFile(_ sender: DownloadUrlFile, willStartLoadingFrom url: URL )
    func DownloadUrlFile(_ sender: DownloadUrlFile, didEndLoadingFrom url: URL )
-    func DownloadUrlFile(_ sender: DownloadUrlFile, didFailLoadingFrom url: URL, error: NSError )
+   func DownloadUrlFile(_ sender: DownloadUrlFile, didFailLoadingFrom url: URL, error: NSError )
     
     
 }
@@ -83,18 +110,21 @@ public protocol DownloadUrlFileDelegate:class{
 
 extension DownloadUrlFileDelegate{
     
-    func DownloadUrlFile(_ sender: DownloadUrlFile, shouldStartLoadingFrom url: URL ) ->Bool{
-        return true
-    }
+//    func DownloadUrlFile(_ sender: DownloadUrlFile, shouldStartLoadingFrom url: URL ) ->Bool{
+//        return true
+//    }
     
-    func DownloadUrlFile(_ sender: DownloadUrlFile, didEndLoadingFrom url: URL ){
-        print("File download **********");
+    func DownloadUrlFile(_ sender: DownloadUrlFile, willStartLoadingFrom url: URL ){
+        print("File init **********");
     }
     
     func DownloadUrlFile(_ sender: DownloadUrlFile, didFailLoadingFrom url: URL, error: NSError ){
         print("Fail in Loading ", error)
     }
     
+    func DownloadUrlFile(_ sender: DownloadUrlFile, didEndLoadingFrom url: URL ){
+          print("File download **********");
+    }
     
 }
 

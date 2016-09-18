@@ -2,7 +2,7 @@
 //  Books+CoreDataProperties.swift
 //  hackerbookv2
 //
-//  Created by Antonio Benavente del Moral on 12/9/16.
+//  Created by Antonio Benavente del Moral on 18/9/16.
 //  Copyright © 2016 Antonio Benavente del Moral. All rights reserved.
 //
 
@@ -16,10 +16,11 @@ extension Books {
         return NSFetchRequest<Books>(entityName: "Books");
     }
 
-    @NSManaged public var title: String?
+    @NSManaged public var download: Bool
     @NSManaged public var favorite: Bool
     @NSManaged public var lastOpen: NSDate?
-    @NSManaged public var download: Bool
+    @NSManaged public var title: String?
+    @NSManaged public var urlPdf: String?
     @NSManaged public var annotations: NSSet?
     @NSManaged public var authors: NSSet?
     @NSManaged public var images: Image?
