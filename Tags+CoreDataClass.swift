@@ -12,4 +12,22 @@ import CoreData
 
 public class Tags: NSManagedObject {
 
+    
+    static let entityName = "Tags"
+    
+    convenience init(tag:String, book:Books, inContext context:NSManagedObjectContext) {
+        
+        let entity = NSEntityDescription.entity(forEntityName: Tags.entityName, in: context)!
+        
+        self.init(entity:entity, insertInto:context)
+        
+        self.tag = tag
+        self.orderTag = tag
+        self.addToBooks(book)
+        
+        
+    }
+    
+    
+    
 }

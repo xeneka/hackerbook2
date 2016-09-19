@@ -10,7 +10,7 @@
     </entity>
     <entity name="Authors" representedClassName=".Authors" syncable="YES">
         <attribute name="authorName" attributeType="String" indexed="YES" syncable="YES"/>
-        <relationship name="books" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Books" inverseName="authors" inverseEntity="Books" syncable="YES"/>
+        <relationship name="books" toMany="YES" deletionRule="Nullify" destinationEntity="Books" inverseName="authors" inverseEntity="Books" syncable="YES"/>
     </entity>
     <entity name="Books" representedClassName=".Books" syncable="YES">
         <attribute name="download" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES" syncable="YES"/>
@@ -45,11 +45,11 @@
     </entity>
     <elements>
         <element name="Annotations" positionX="-162" positionY="-486" width="128" height="88"/>
-        <element name="Authors" positionX="-450" positionY="-117" width="128" height="30"/>
+        <element name="Authors" positionX="-450" positionY="-117" width="128" height="75"/>
         <element name="Books" positionX="-380" positionY="-486" width="128" height="193"/>
         <element name="Geo" positionX="-63" positionY="-228" width="128" height="30"/>
         <element name="Image" positionX="-225" positionY="-264" width="128" height="30"/>
-        <element name="PdfBook" positionX="-362" positionY="-318" width="128" height="30"/>
-        <element name="Tags" positionX="-486" positionY="-192" width="128" height="30"/>
+        <element name="PdfBook" positionX="-128" positionY="-126" width="128" height="30"/>
+        <element name="Tags" positionX="-504" positionY="-273" width="128" height="30"/>
     </elements>
 </model>

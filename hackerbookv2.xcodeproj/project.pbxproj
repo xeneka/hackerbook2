@@ -8,6 +8,17 @@
 
 /* Begin PBXBuildFile section */
 		A93185F31D87FFFB00EFB49E /* AsyncLoadRemoteFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = A93185F21D87FFFB00EFB49E /* AsyncLoadRemoteFile.swift */; };
+		A94004BC1D8FE66200DCDE57 /* emptyBookCover.png in Resources */ = {isa = PBXBuildFile; fileRef = A94004BA1D8FE66200DCDE57 /* emptyBookCover.png */; };
+		A94004BD1D8FE66200DCDE57 /* emptyPdf.pdf in Resources */ = {isa = PBXBuildFile; fileRef = A94004BB1D8FE66200DCDE57 /* emptyPdf.pdf */; };
+		A94004D51D8FF25900DCDE57 /* Annotations+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = A94004CE1D8FF25900DCDE57 /* Annotations+CoreDataProperties.swift */; };
+		A94004D61D8FF25900DCDE57 /* Image+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = A94004CF1D8FF25900DCDE57 /* Image+CoreDataProperties.swift */; };
+		A94004D71D8FF25900DCDE57 /* Tags+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = A94004D01D8FF25900DCDE57 /* Tags+CoreDataProperties.swift */; };
+		A94004D81D8FF25900DCDE57 /* Books+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = A94004D11D8FF25900DCDE57 /* Books+CoreDataProperties.swift */; };
+		A94004D91D8FF25900DCDE57 /* PdfBook+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = A94004D21D8FF25900DCDE57 /* PdfBook+CoreDataProperties.swift */; };
+		A94004DA1D8FF25900DCDE57 /* Authors+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = A94004D31D8FF25900DCDE57 /* Authors+CoreDataProperties.swift */; };
+		A94004DB1D8FF25900DCDE57 /* Geo+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = A94004D41D8FF25900DCDE57 /* Geo+CoreDataProperties.swift */; };
+		A94004DE1D90017200DCDE57 /* LoadViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A94004DC1D90017200DCDE57 /* LoadViewController.swift */; };
+		A94004DF1D90017200DCDE57 /* LoadViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A94004DD1D90017200DCDE57 /* LoadViewController.xib */; };
 		A967F8DC1D8BF12A00535FC4 /* JSONProcessing.swift in Sources */ = {isa = PBXBuildFile; fileRef = A967F8DB1D8BF12A00535FC4 /* JSONProcessing.swift */; };
 		A98941151D8686060041F408 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A98941141D8686060041F408 /* AppDelegate.swift */; };
 		A98941171D8686060041F408 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A98941161D8686060041F408 /* ViewController.swift */; };
@@ -16,19 +27,12 @@
 		A989411F1D8686060041F408 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A989411D1D8686060041F408 /* LaunchScreen.storyboard */; };
 		A98941281D8686330041F408 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A98941261D8686330041F408 /* Model.xcdatamodeld */; };
 		A9A888751D8E74F30071A7AD /* Geo+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9A888671D8E74F30071A7AD /* Geo+CoreDataClass.swift */; };
-		A9A888761D8E74F30071A7AD /* Geo+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9A888681D8E74F30071A7AD /* Geo+CoreDataProperties.swift */; };
 		A9A888771D8E74F30071A7AD /* PdfBook+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9A888691D8E74F30071A7AD /* PdfBook+CoreDataClass.swift */; };
-		A9A888781D8E74F30071A7AD /* PdfBook+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9A8886A1D8E74F30071A7AD /* PdfBook+CoreDataProperties.swift */; };
 		A9A888791D8E74F30071A7AD /* Authors+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9A8886B1D8E74F30071A7AD /* Authors+CoreDataClass.swift */; };
-		A9A8887A1D8E74F30071A7AD /* Authors+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9A8886C1D8E74F30071A7AD /* Authors+CoreDataProperties.swift */; };
 		A9A8887B1D8E74F30071A7AD /* Image+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9A8886D1D8E74F30071A7AD /* Image+CoreDataClass.swift */; };
-		A9A8887C1D8E74F30071A7AD /* Image+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9A8886E1D8E74F30071A7AD /* Image+CoreDataProperties.swift */; };
 		A9A8887D1D8E74F30071A7AD /* Tags+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9A8886F1D8E74F30071A7AD /* Tags+CoreDataClass.swift */; };
-		A9A8887E1D8E74F30071A7AD /* Tags+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9A888701D8E74F30071A7AD /* Tags+CoreDataProperties.swift */; };
 		A9A8887F1D8E74F30071A7AD /* Annotations+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9A888711D8E74F30071A7AD /* Annotations+CoreDataClass.swift */; };
-		A9A888801D8E74F30071A7AD /* Annotations+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9A888721D8E74F30071A7AD /* Annotations+CoreDataProperties.swift */; };
 		A9A888811D8E74F30071A7AD /* Books+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9A888731D8E74F30071A7AD /* Books+CoreDataClass.swift */; };
-		A9A888821D8E74F30071A7AD /* Books+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9A888741D8E74F30071A7AD /* Books+CoreDataProperties.swift */; };
 		A9A888861D8EA7EC0071A7AD /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9A888841D8EA7EC0071A7AD /* CoreDataStack.swift */; };
 		A9A888871D8EA7EC0071A7AD /* CoreDataTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9A888851D8EA7EC0071A7AD /* CoreDataTableViewController.swift */; };
 		A9A888891D8EF9C90071A7AD /* ModelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9A888881D8EF9C90071A7AD /* ModelTest.swift */; };
@@ -36,6 +40,17 @@
 
 /* Begin PBXFileReference section */
 		A93185F21D87FFFB00EFB49E /* AsyncLoadRemoteFile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AsyncLoadRemoteFile.swift; sourceTree = "<group>"; };
+		A94004BA1D8FE66200DCDE57 /* emptyBookCover.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = emptyBookCover.png; sourceTree = "<group>"; };
+		A94004BB1D8FE66200DCDE57 /* emptyPdf.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = emptyPdf.pdf; sourceTree = "<group>"; };
+		A94004CE1D8FF25900DCDE57 /* Annotations+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Annotations+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		A94004CF1D8FF25900DCDE57 /* Image+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Image+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		A94004D01D8FF25900DCDE57 /* Tags+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Tags+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		A94004D11D8FF25900DCDE57 /* Books+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Books+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		A94004D21D8FF25900DCDE57 /* PdfBook+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "PdfBook+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		A94004D31D8FF25900DCDE57 /* Authors+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Authors+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		A94004D41D8FF25900DCDE57 /* Geo+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Geo+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		A94004DC1D90017200DCDE57 /* LoadViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadViewController.swift; sourceTree = "<group>"; };
+		A94004DD1D90017200DCDE57 /* LoadViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoadViewController.xib; sourceTree = "<group>"; };
 		A967F8DB1D8BF12A00535FC4 /* JSONProcessing.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONProcessing.swift; sourceTree = "<group>"; };
 		A98941111D8686060041F408 /* hackerbookv2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = hackerbookv2.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A98941141D8686060041F408 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -46,19 +61,12 @@
 		A98941201D8686060041F408 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A98941271D8686330041F408 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
 		A9A888671D8E74F30071A7AD /* Geo+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Geo+CoreDataClass.swift"; sourceTree = "<group>"; };
-		A9A888681D8E74F30071A7AD /* Geo+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Geo+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		A9A888691D8E74F30071A7AD /* PdfBook+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "PdfBook+CoreDataClass.swift"; sourceTree = "<group>"; };
-		A9A8886A1D8E74F30071A7AD /* PdfBook+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "PdfBook+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		A9A8886B1D8E74F30071A7AD /* Authors+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Authors+CoreDataClass.swift"; sourceTree = "<group>"; };
-		A9A8886C1D8E74F30071A7AD /* Authors+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Authors+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		A9A8886D1D8E74F30071A7AD /* Image+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Image+CoreDataClass.swift"; sourceTree = "<group>"; };
-		A9A8886E1D8E74F30071A7AD /* Image+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Image+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		A9A8886F1D8E74F30071A7AD /* Tags+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Tags+CoreDataClass.swift"; sourceTree = "<group>"; };
-		A9A888701D8E74F30071A7AD /* Tags+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Tags+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		A9A888711D8E74F30071A7AD /* Annotations+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Annotations+CoreDataClass.swift"; sourceTree = "<group>"; };
-		A9A888721D8E74F30071A7AD /* Annotations+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Annotations+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		A9A888731D8E74F30071A7AD /* Books+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Books+CoreDataClass.swift"; sourceTree = "<group>"; };
-		A9A888741D8E74F30071A7AD /* Books+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Books+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		A9A888841D8EA7EC0071A7AD /* CoreDataStack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
 		A9A888851D8EA7EC0071A7AD /* CoreDataTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataTableViewController.swift; sourceTree = "<group>"; };
 		A9A888881D8EF9C90071A7AD /* ModelTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModelTest.swift; sourceTree = "<group>"; };
@@ -88,15 +96,49 @@
 			name = Utils;
 			sourceTree = "<group>";
 		};
+		A94004BE1D8FE67400DCDE57 /* resources */ = {
+			isa = PBXGroup;
+			children = (
+				A94004BA1D8FE66200DCDE57 /* emptyBookCover.png */,
+				A94004BB1D8FE66200DCDE57 /* emptyPdf.pdf */,
+			);
+			name = resources;
+			sourceTree = "<group>";
+		};
+		A94004CD1D8FF22700DCDE57 /* ManagedProperties */ = {
+			isa = PBXGroup;
+			children = (
+				A94004CE1D8FF25900DCDE57 /* Annotations+CoreDataProperties.swift */,
+				A94004CF1D8FF25900DCDE57 /* Image+CoreDataProperties.swift */,
+				A94004D01D8FF25900DCDE57 /* Tags+CoreDataProperties.swift */,
+				A94004D11D8FF25900DCDE57 /* Books+CoreDataProperties.swift */,
+				A94004D21D8FF25900DCDE57 /* PdfBook+CoreDataProperties.swift */,
+				A94004D31D8FF25900DCDE57 /* Authors+CoreDataProperties.swift */,
+				A94004D41D8FF25900DCDE57 /* Geo+CoreDataProperties.swift */,
+			);
+			name = ManagedProperties;
+			sourceTree = "<group>";
+		};
+		A94004E01D90017B00DCDE57 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				A94004DC1D90017200DCDE57 /* LoadViewController.swift */,
+				A94004DD1D90017200DCDE57 /* LoadViewController.xib */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
 		A98941081D8686060041F408 = {
 			isa = PBXGroup;
 			children = (
+				A94004E01D90017B00DCDE57 /* Controller */,
 				A93185F41D881D3A00EFB49E /* Utils */,
 				A9A8888A1D8EF9DB0071A7AD /* Test */,
 				A98941471D86C86B0041F408 /* Model */,
 				A98941131D8686060041F408 /* hackerbookv2 */,
 				A9A888901D8EFB4B0071A7AD /* hackerbookv2Tests */,
 				A98941121D8686060041F408 /* Products */,
+				A94004BE1D8FE67400DCDE57 /* resources */,
 			);
 			sourceTree = "<group>";
 		};
@@ -125,6 +167,7 @@
 			isa = PBXGroup;
 			children = (
 				A98941261D8686330041F408 /* Model.xcdatamodeld */,
+				A94004CD1D8FF22700DCDE57 /* ManagedProperties */,
 				A9A888661D8E74B00071A7AD /* managedModel */,
 			);
 			name = Model;
@@ -134,19 +177,12 @@
 			isa = PBXGroup;
 			children = (
 				A9A888671D8E74F30071A7AD /* Geo+CoreDataClass.swift */,
-				A9A888681D8E74F30071A7AD /* Geo+CoreDataProperties.swift */,
 				A9A888691D8E74F30071A7AD /* PdfBook+CoreDataClass.swift */,
-				A9A8886A1D8E74F30071A7AD /* PdfBook+CoreDataProperties.swift */,
 				A9A8886B1D8E74F30071A7AD /* Authors+CoreDataClass.swift */,
-				A9A8886C1D8E74F30071A7AD /* Authors+CoreDataProperties.swift */,
 				A9A8886D1D8E74F30071A7AD /* Image+CoreDataClass.swift */,
-				A9A8886E1D8E74F30071A7AD /* Image+CoreDataProperties.swift */,
 				A9A8886F1D8E74F30071A7AD /* Tags+CoreDataClass.swift */,
-				A9A888701D8E74F30071A7AD /* Tags+CoreDataProperties.swift */,
 				A9A888711D8E74F30071A7AD /* Annotations+CoreDataClass.swift */,
-				A9A888721D8E74F30071A7AD /* Annotations+CoreDataProperties.swift */,
 				A9A888731D8E74F30071A7AD /* Books+CoreDataClass.swift */,
-				A9A888741D8E74F30071A7AD /* Books+CoreDataProperties.swift */,
 			);
 			name = managedModel;
 			sourceTree = "<group>";
@@ -228,8 +264,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A94004DF1D90017200DCDE57 /* LoadViewController.xib in Resources */,
 				A989411F1D8686060041F408 /* LaunchScreen.storyboard in Resources */,
+				A94004BD1D8FE66200DCDE57 /* emptyPdf.pdf in Resources */,
 				A989411C1D8686060041F408 /* Assets.xcassets in Resources */,
+				A94004BC1D8FE66200DCDE57 /* emptyBookCover.png in Resources */,
 				A989411A1D8686060041F408 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -242,27 +281,28 @@
 			buildActionMask = 2147483647;
 			files = (
 				A93185F31D87FFFB00EFB49E /* AsyncLoadRemoteFile.swift in Sources */,
+				A94004DE1D90017200DCDE57 /* LoadViewController.swift in Sources */,
 				A98941171D8686060041F408 /* ViewController.swift in Sources */,
+				A94004D71D8FF25900DCDE57 /* Tags+CoreDataProperties.swift in Sources */,
 				A967F8DC1D8BF12A00535FC4 /* JSONProcessing.swift in Sources */,
 				A9A8887B1D8E74F30071A7AD /* Image+CoreDataClass.swift in Sources */,
 				A9A888751D8E74F30071A7AD /* Geo+CoreDataClass.swift in Sources */,
-				A9A8887C1D8E74F30071A7AD /* Image+CoreDataProperties.swift in Sources */,
-				A9A8887A1D8E74F30071A7AD /* Authors+CoreDataProperties.swift in Sources */,
 				A9A888891D8EF9C90071A7AD /* ModelTest.swift in Sources */,
+				A94004DA1D8FF25900DCDE57 /* Authors+CoreDataProperties.swift in Sources */,
 				A9A888791D8E74F30071A7AD /* Authors+CoreDataClass.swift in Sources */,
-				A9A8887E1D8E74F30071A7AD /* Tags+CoreDataProperties.swift in Sources */,
+				A94004DB1D8FF25900DCDE57 /* Geo+CoreDataProperties.swift in Sources */,
 				A98941151D8686060041F408 /* AppDelegate.swift in Sources */,
-				A9A888781D8E74F30071A7AD /* PdfBook+CoreDataProperties.swift in Sources */,
-				A9A888761D8E74F30071A7AD /* Geo+CoreDataProperties.swift in Sources */,
+				A94004D51D8FF25900DCDE57 /* Annotations+CoreDataProperties.swift in Sources */,
+				A94004D91D8FF25900DCDE57 /* PdfBook+CoreDataProperties.swift in Sources */,
 				A9A8887F1D8E74F30071A7AD /* Annotations+CoreDataClass.swift in Sources */,
-				A9A888821D8E74F30071A7AD /* Books+CoreDataProperties.swift in Sources */,
 				A9A888871D8EA7EC0071A7AD /* CoreDataTableViewController.swift in Sources */,
+				A94004D61D8FF25900DCDE57 /* Image+CoreDataProperties.swift in Sources */,
+				A94004D81D8FF25900DCDE57 /* Books+CoreDataProperties.swift in Sources */,
 				A98941281D8686330041F408 /* Model.xcdatamodeld in Sources */,
 				A9A888861D8EA7EC0071A7AD /* CoreDataStack.swift in Sources */,
 				A9A8887D1D8E74F30071A7AD /* Tags+CoreDataClass.swift in Sources */,
 				A9A888771D8E74F30071A7AD /* PdfBook+CoreDataClass.swift in Sources */,
 				A9A888811D8E74F30071A7AD /* Books+CoreDataClass.swift in Sources */,
-				A9A888801D8E74F30071A7AD /* Annotations+CoreDataProperties.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

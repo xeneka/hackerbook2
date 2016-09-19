@@ -12,4 +12,23 @@ import CoreData
 
 public class Image: NSManagedObject {
 
+    static let entityName = "Image"
+    
+    convenience init(image: Data, book:Books, context: NSManagedObjectContext){
+        
+        let entity = NSEntityDescription.entity(forEntityName: Image.entityName, in: context)!
+        
+        self.init(entity:entity, insertInto:context)
+        
+        self.books = book
+        self.image = image as NSData?
+        
+        
+        
+        
+    }
+    
+    
+    
+    
 }

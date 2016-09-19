@@ -6,7 +6,7 @@
 //  Copyright © 2016 Antonio Benavente del Moral. All rights reserved.
 //
 
-import XCTest
+/*import XCTest
 
 class ModelTest: XCTestCase {
     
@@ -32,4 +32,4 @@ class ModelTest: XCTestCase {
         }
     }
     
-}
+}*/

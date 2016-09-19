@@ -19,10 +19,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         
-        
-        let model = CoreDataStack(modelName: "Model")
+        // Create the window
+        window = UIWindow.init(frame: UIScreen.main.bounds)
+        let vc:UIViewController
+       
         
         // Verifico si ya la url ya se ha descargado, si no se ha descargado lo descargo 
+        
+        // si no se ha desargado
+        
+        vc = LoadViewController()
+        window?.rootViewController = vc
+        window?.makeKeyAndVisible()
         
         
         // Inicio Descarga del JSON
@@ -38,7 +46,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             let jsonDicts = try JSONSerialization.jsonObject(with: parametro as! Data, options: JSONSerialization.ReadingOptions.mutableContainers) as? JSONArray
                 
                 try decode(books: jsonDicts!)
-                print(jsonDicts)
+                
                 
             }catch{
                 print("Error")
@@ -48,7 +56,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         
         
-        print("Ficheros descargado");
+       
         
         
         return true

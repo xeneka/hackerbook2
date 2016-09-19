@@ -11,8 +11,19 @@ import CoreData
 
 
 
-
+// Variable para todos los procesos
 let model = CoreDataStack(modelName: "Model")
+let mainBundle = Bundle.main
+
+let defaultImage = mainBundle.url(forResource: "emptyBookCover", withExtension: "png")!
+let imageByDefault = try! Data(contentsOf: defaultImage)
+
+
+let defaultPdf = mainBundle.url(forResource: "emptyPdf", withExtension: "pdf")!
+let pdfbydefault = try! Data(contentsOf: defaultPdf)
+
+let finishLoadDataFromJSON = NSNotification.Name("finishLoadJSON")
+
 
 //MARK: - Errors
 enum JSONErrors : Error{
@@ -59,6 +70,16 @@ func decode(books dicts: JSONArray){
         
         try decode(book:$0)
     }
+     
+        model?.save()
+        
+        
+        
+        let notification = NSNotification(name: finishLoadDataFromJSON, object: nil)
+        
+        let nc = NotificationCenter.default
+        
+        nc.post(notification as Notification)
         
     }catch{
         print("Error detected in JSONArray dict")
@@ -94,15 +115,36 @@ func decode(book dict: JSONDictionary) throws{
     
      // Guardar en la Base de datos
     
-    print("****",authors, imgURL,tags, title)
+  
     
     // Descargar en Segundo plano la imagenes y pdf
+    
+    
     
     let book = Books(title: title, pdfUrl: pdfURL.absoluteString, downloadFile: false, inContext: (model?.context)!)
     
     
+    for each in authors{
+        let _ = Authors(name: each, book: book, inContext: (model?.context)!)
+    }
+
+   for each in tags{
+       let _ = Tags(tag: each, book: book, inContext: (model?.context)!)
+    }
+
     
-    model?.save()
+    
+    let _ = Image(image: imageByDefault, book: book, context: (model?.context)!)
+    
+    // Iniciar la descarga en segundo plano de la imagen
+    
+    let _ = PdfBook(pdfdata: pdfbydefault, book: book, inContext: (model?.context)!)
+    
+    // El pdf no se descarga en segundo plano hasta que el usuario elige verlo
+    
+   
+    
+    
     
     return
   
