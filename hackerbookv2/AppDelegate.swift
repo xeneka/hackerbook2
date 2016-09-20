@@ -21,15 +21,49 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         // Create the window
         window = UIWindow.init(frame: UIScreen.main.bounds)
-        let vc:UIViewController
-       
+        let nVC:UIViewController
+        
         
         // Verifico si ya la url ya se ha descargado, si no se ha descargado lo descargo 
         
+        let descarga = false
+        
+        if (descarga){
+            
+            let fr = NSFetchRequest<BookTag>(entityName: BookTag.entityName)
+            fr.fetchBatchSize = 50
+            
+            fr.sortDescriptors=[NSSortDescriptor(key:"tags", ascending:false)]
+            
+            let fc = NSFetchedResultsController(fetchRequest: fr, managedObjectContext: (model?.context)!, sectionNameKeyPath: nil, cacheName: nil)
+            
+            print("----")
+            
+            NSLog("%@", fr);
+            
+            
+            let nVC = BooksTableViewController(fetchedResultsController: fc as! NSFetchedResultsController<NSFetchRequestResult>, style: .plain)
+            //let nVC = PruebaViewController()
+            
+            
+            let navVC = UINavigationController(rootViewController: nVC)
+            window = UIWindow(frame: UIScreen.main.bounds)
+            
+            window?.rootViewController = navVC
+            window?.makeKeyAndVisible()
+
+            
+        }else{
+        
+        
         // si no se ha desargado
         
-        vc = LoadViewController()
-        window?.rootViewController = vc
+        nVC = LoadViewController()
+        let navVC = UINavigationController(rootViewController: nVC)
+        
+        window = UIWindow(frame: UIScreen.main.bounds)
+        
+        window?.rootViewController = navVC
         window?.makeKeyAndVisible()
         
         
@@ -54,7 +88,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
         
         
-        
+        }
         
        
         

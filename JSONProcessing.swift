@@ -64,6 +64,8 @@ struct Book{
 
 func decode(books dicts: JSONArray){
     
+    try! model?.dropAllData()
+    
     do{
     _ = try dicts.flatMap{
         
@@ -71,19 +73,29 @@ func decode(books dicts: JSONArray){
         try decode(book:$0)
     }
      
-        model?.save()
+       
+        
+        model?.save {
+            let notification = NSNotification(name: finishLoadDataFromJSON, object: nil)
+            
+            let nc = NotificationCenter.default
+            
+            nc.post(notification as Notification)
+                    }
+        
+       
         
         
-        
-        let notification = NSNotification(name: finishLoadDataFromJSON, object: nil)
-        
-        let nc = NotificationCenter.default
-        
-        nc.post(notification as Notification)
+       
         
     }catch{
         print("Error detected in JSONArray dict")
     }
+    
+    
+    
+    
+    
 }
 
 
@@ -129,7 +141,10 @@ func decode(book dict: JSONDictionary) throws{
     }
 
    for each in tags{
-       let _ = Tags(tag: each, book: book, inContext: (model?.context)!)
+       let newTag = Tags(tag: each, inContext: (model?.context)!)
+    
+        let _ = BookTag(book: book, tag: newTag, inContext: (model?.context)!)
+    
     }
 
     

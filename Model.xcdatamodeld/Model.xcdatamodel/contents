@@ -20,9 +20,13 @@
         <attribute name="urlPdf" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="annotations" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Annotations" inverseName="books" inverseEntity="Annotations" syncable="YES"/>
         <relationship name="authors" toMany="YES" deletionRule="Nullify" destinationEntity="Authors" inverseName="books" inverseEntity="Authors" syncable="YES"/>
+        <relationship name="booktag" toMany="YES" deletionRule="Nullify" destinationEntity="BookTag" inverseName="book" inverseEntity="BookTag" syncable="YES"/>
         <relationship name="images" maxCount="1" deletionRule="Nullify" destinationEntity="Image" inverseName="books" inverseEntity="Image" syncable="YES"/>
         <relationship name="pdfbook" maxCount="1" deletionRule="Cascade" destinationEntity="PdfBook" inverseName="books" inverseEntity="PdfBook" syncable="YES"/>
-        <relationship name="tags" toMany="YES" deletionRule="Nullify" destinationEntity="Tags" inverseName="books" inverseEntity="Tags" syncable="YES"/>
+    </entity>
+    <entity name="BookTag" representedClassName=".BookTag" syncable="YES">
+        <relationship name="book" maxCount="1" deletionRule="Nullify" destinationEntity="Books" inverseName="booktag" inverseEntity="Books" syncable="YES"/>
+        <relationship name="tags" maxCount="1" deletionRule="Nullify" destinationEntity="Tags" inverseName="booktag" inverseEntity="Tags" syncable="YES"/>
     </entity>
     <entity name="Geo" representedClassName=".Geo" syncable="YES">
         <attribute name="latitude" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
@@ -41,15 +45,16 @@
     <entity name="Tags" representedClassName=".Tags" syncable="YES">
         <attribute name="orderTag" attributeType="String" indexed="YES" syncable="YES"/>
         <attribute name="tag" attributeType="String" indexed="YES" syncable="YES"/>
-        <relationship name="books" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Books" inverseName="tags" inverseEntity="Books" syncable="YES"/>
+        <relationship name="booktag" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="BookTag" inverseName="tags" inverseEntity="BookTag" syncable="YES"/>
     </entity>
     <elements>
         <element name="Annotations" positionX="-162" positionY="-486" width="128" height="88"/>
         <element name="Authors" positionX="-450" positionY="-117" width="128" height="75"/>
-        <element name="Books" positionX="-380" positionY="-486" width="128" height="193"/>
+        <element name="Books" positionX="-380" positionY="-486" width="128" height="195"/>
         <element name="Geo" positionX="-63" positionY="-228" width="128" height="30"/>
         <element name="Image" positionX="-225" positionY="-264" width="128" height="30"/>
         <element name="PdfBook" positionX="-128" positionY="-126" width="128" height="30"/>
-        <element name="Tags" positionX="-504" positionY="-273" width="128" height="30"/>
+        <element name="Tags" positionX="-504" positionY="-273" width="128" height="90"/>
+        <element name="BookTag" positionX="-297" positionY="-333" width="128" height="75"/>
     </elements>
 </model>

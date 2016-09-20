@@ -15,7 +15,7 @@ public class Tags: NSManagedObject {
     
     static let entityName = "Tags"
     
-    convenience init(tag:String, book:Books, inContext context:NSManagedObjectContext) {
+    convenience init(tag:String, inContext context:NSManagedObjectContext) {
         
         let entity = NSEntityDescription.entity(forEntityName: Tags.entityName, in: context)!
         
@@ -23,7 +23,7 @@ public class Tags: NSManagedObject {
         
         self.tag = tag
         self.orderTag = tag
-        self.addToBooks(book)
+       
         
         
     }

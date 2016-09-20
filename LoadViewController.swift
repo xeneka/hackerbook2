@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreData
 
 class LoadViewController: UIViewController {
 
@@ -26,6 +27,7 @@ class LoadViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         
+
         
        setupNotification()
         
@@ -54,21 +56,42 @@ extension LoadViewController{
     
     
     func setupNotification(){
+        
+        
     
         let nc = NotificationCenter.default
         
-        let _ = nc.addObserver(forName: NSNotification.Name("finishLoadJSON"), object: nil, queue: nil)
+        let _ = nc.addObserver(forName: NSNotification.Name("finishLoadJSON"), object: nil, queue: OperationQueue.main)
         { (n:Notification) in
             self.stopLoading.stopAnimating()
-            print("Finalizado!!!")
+            
+            
+            let fr = NSFetchRequest<BookTag>(entityName: BookTag.entityName)
+            fr.fetchBatchSize = 50
+            
+            fr.sortDescriptors=[NSSortDescriptor(key:"tags", ascending:false)]
+            
+            let fc = NSFetchedResultsController(fetchRequest: fr, managedObjectContext: (model?.context)!, sectionNameKeyPath: nil, cacheName: nil)
+            
+            print("----")
+            
+            NSLog("%@", fr);
+            
+            
+          let nVC = BooksTableViewController(fetchedResultsController: fc as! NSFetchedResultsController<NSFetchRequestResult>, style: .plain)
+         //let nVC = PruebaViewController()
+            
+            
+            self.navigationController?.pushViewController(nVC, animated: true)
+            
+            
+            
         }
     }
     
     func tearDownNotification(){
-        let nc = NotificationCenter.default
+        NotificationCenter.default.removeObserver(self)
         
-        nc.removeObserver(Any)
-        print("Ya observa")
         
     }
     

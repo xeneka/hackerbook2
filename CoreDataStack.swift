@@ -174,12 +174,41 @@ extension CoreDataStack {
             
         }
     }
+
+
+
+
+func save(completion:@escaping () ->()){
+    
+    context.performAndWait(){
+        
+        if self.context.hasChanges{
+            do{
+                try self.context.save()
+            }catch{
+                fatalError("Error while saving main context: \(error)")
+            }
+            
+            // now we save in the background
+            self.persistingContext.perform(){
+                do{
+                    try self.persistingContext.save()
+                    completion()
+                }catch{
+                    fatalError("Error while saving persisting context: \(error)")
+                }
+            }
+            
+            
+        }
+    }
+
+    
+    
 }
 
 
-
-
-
+}
 
 
 
