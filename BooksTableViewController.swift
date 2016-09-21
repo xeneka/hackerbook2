@@ -12,7 +12,9 @@ class BooksTableViewController: CoreDataTableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        registerNib()
+        self.navigationItem.hidesBackButton = true
+        
         // Do any additional setup after loading the view.
     }
 
@@ -22,24 +24,18 @@ class BooksTableViewController: CoreDataTableViewController {
     }
     
     
+    
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return CellBookTableViewCell.cellHeight
+    }
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 
-        let cellId = "cellID"
-        
         let booktag = fetchedResultsController?.object(at: indexPath) as! BookTag
+        let cell = tableView.dequeueReusableCell(withIdentifier: CellBookTableViewCell.cellId) as! CellBookTableViewCell
         
-        // creo la celda
-        
-        var cell = tableView.dequeueReusableCell(withIdentifier: cellId)
-        
-        if (cell == nil){
-            cell = UITableViewCell(style: .subtitle, reuseIdentifier: cellId)
-        }
-        
-        cell?.textLabel?.text = booktag.tags?.orderTag
-        
-        return cell!
-        
+        cell.startObserving(bookTag: booktag)
+        return cell
     }
     
    
@@ -56,3 +52,14 @@ class BooksTableViewController: CoreDataTableViewController {
     */
 
 }
+
+extension BooksTableViewController{
+    
+    func registerNib(){
+        let nib = UINib(nibName: "CellBookTableViewCell", bundle: Bundle.main)
+        tableView.register(nib, forCellReuseIdentifier: CellBookTableViewCell.cellId)
+        
+    }
+    
+}
+

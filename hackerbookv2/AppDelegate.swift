@@ -37,13 +37,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             
             let fc = NSFetchedResultsController(fetchRequest: fr, managedObjectContext: (model?.context)!, sectionNameKeyPath: nil, cacheName: nil)
             
-            print("----")
-            
-            NSLog("%@", fr);
             
             
             let nVC = BooksTableViewController(fetchedResultsController: fc as! NSFetchedResultsController<NSFetchRequestResult>, style: .plain)
-            //let nVC = PruebaViewController()
+         
             
             
             let navVC = UINavigationController(rootViewController: nVC)

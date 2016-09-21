@@ -40,25 +40,6 @@ typealias JSONDictionary = [String : JSONObject]
 typealias JSONArray = [JSONDictionary]
 
 
-//Struct del libro
-
-typealias Author = String
-typealias Authorsx = [Author]
-typealias Title = String
-typealias PDF = String
-typealias Imagex = String
-
-struct Book{
-    let _authors : Authorsx
-    let _title   : Title
-    var _tags    : Tags
-    let _pdf     : PDF
-    let _image   : Imagex
-
-}
-
-
-
 
 
 
@@ -74,16 +55,17 @@ func decode(books dicts: JSONArray){
     }
      
        
+       
         
         model?.save {
-            let notification = NSNotification(name: finishLoadDataFromJSON, object: nil)
             
-            let nc = NotificationCenter.default
-            
-            nc.post(notification as Notification)
                     }
         
-       
+        let notification = NSNotification(name: finishLoadDataFromJSON, object: nil)
+        
+        let nc = NotificationCenter.default
+        
+        nc.post(notification as Notification)
         
         
        
@@ -149,7 +131,8 @@ func decode(book dict: JSONDictionary) throws{
 
     
     
-    let _ = Image(image: imageByDefault, book: book, context: (model?.context)!)
+    let _ = Image(image: downloadImage(url: imgURL, image: imageByDefault, book: book), book: book, context: (model?.context)!)
+    
     
     // Iniciar la descarga en segundo plano de la imagen
     
@@ -201,3 +184,26 @@ func parseCommaSeparated(string s: String)->[String]{
 
 
 
+//MARK: -  Utils
+
+func downloadImage(url:URL, image:Data, book:Books) -> Data {
+    
+    // Defino la Url sobre la que se tiene que descargar el fichero
+    let datos:DownloadUrlFile = DownloadUrlFile(url);
+    
+    // Hago la descarga del fichero en segundo plano y le paso una trailing closure decodifica el JSON en este caso
+    
+    
+    datos.doSomeThingWithDownLoadFile { (parametro: Any) in
+        do {
+            let image = parametro as! NSData
+            book.images?.image = image
+        }catch{
+            print("Error")
+            
+              }
+
+}
+
+    return image
+}

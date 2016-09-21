@@ -27,3 +27,60 @@ public class BookTag: NSManagedObject {
     
     
 }
+
+
+
+//MARK: - KVO
+extension BookTag{
+    static func observableKeys() -> [String] {return ["Book.Images.image"]}
+    
+    func setupKVO(){
+        
+        
+        
+        for key in BookTag.observableKeys(){
+            self.addObserver(self, forKeyPath: key,
+                             options: [], context: nil)
+        }
+        
+        
+    }
+    
+    func teardownKVO(){
+        
+        // Baja en todas las notificaciones
+        for key in BookTag.observableKeys(){
+            self.removeObserver(self, forKeyPath: key)
+        }
+        
+        
+    }
+    
+    
+}
+
+
+//MARK: - Lifecycle
+extension BookTag{
+    
+    // Se llama una sola vez
+    public override func awakeFromInsert() {
+        super.awakeFromInsert()
+        
+        setupKVO()
+    }
+    
+    // Se llama un huevo de veces
+    public override func awakeFromFetch() {
+        super.awakeFromFetch()
+       
+        setupKVO()
+    }
+    
+    public override func willTurnIntoFault() {
+        super.willTurnIntoFault()
+        
+        teardownKVO()
+    }
+}
+

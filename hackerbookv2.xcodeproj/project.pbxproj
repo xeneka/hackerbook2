@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A90401521D92918D00E1852C /* CellBookTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A90401501D92918D00E1852C /* CellBookTableViewCell.swift */; };
+		A90401531D92918D00E1852C /* CellBookTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A90401511D92918D00E1852C /* CellBookTableViewCell.xib */; };
 		A93185F31D87FFFB00EFB49E /* AsyncLoadRemoteFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = A93185F21D87FFFB00EFB49E /* AsyncLoadRemoteFile.swift */; };
 		A94004BC1D8FE66200DCDE57 /* emptyBookCover.png in Resources */ = {isa = PBXBuildFile; fileRef = A94004BA1D8FE66200DCDE57 /* emptyBookCover.png */; };
 		A94004BD1D8FE66200DCDE57 /* emptyPdf.pdf in Resources */ = {isa = PBXBuildFile; fileRef = A94004BB1D8FE66200DCDE57 /* emptyPdf.pdf */; };
@@ -29,7 +31,6 @@
 		A99077B51D91221400B3E2FE /* Books+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = A99077AC1D91221400B3E2FE /* Books+CoreDataProperties.swift */; };
 		A99077B61D91221400B3E2FE /* BookTag+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = A99077AD1D91221400B3E2FE /* BookTag+CoreDataClass.swift */; };
 		A99077B71D91221400B3E2FE /* BookTag+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = A99077AE1D91221400B3E2FE /* BookTag+CoreDataProperties.swift */; };
-		A99077BA1D915A8A00B3E2FE /* PruebaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A99077B81D915A8A00B3E2FE /* PruebaViewController.swift */; };
 		A99077BB1D915A8A00B3E2FE /* PruebaViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A99077B91D915A8A00B3E2FE /* PruebaViewController.xib */; };
 		A9A888751D8E74F30071A7AD /* Geo+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9A888671D8E74F30071A7AD /* Geo+CoreDataClass.swift */; };
 		A9A888771D8E74F30071A7AD /* PdfBook+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9A888691D8E74F30071A7AD /* PdfBook+CoreDataClass.swift */; };
@@ -43,6 +44,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		A90401501D92918D00E1852C /* CellBookTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CellBookTableViewCell.swift; sourceTree = "<group>"; };
+		A90401511D92918D00E1852C /* CellBookTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CellBookTableViewCell.xib; sourceTree = "<group>"; };
 		A93185F21D87FFFB00EFB49E /* AsyncLoadRemoteFile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AsyncLoadRemoteFile.swift; sourceTree = "<group>"; };
 		A94004BA1D8FE66200DCDE57 /* emptyBookCover.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = emptyBookCover.png; sourceTree = "<group>"; };
 		A94004BB1D8FE66200DCDE57 /* emptyPdf.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = emptyPdf.pdf; sourceTree = "<group>"; };
@@ -67,7 +70,6 @@
 		A99077AC1D91221400B3E2FE /* Books+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Books+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		A99077AD1D91221400B3E2FE /* BookTag+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "BookTag+CoreDataClass.swift"; sourceTree = "<group>"; };
 		A99077AE1D91221400B3E2FE /* BookTag+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "BookTag+CoreDataProperties.swift"; sourceTree = "<group>"; };
-		A99077B81D915A8A00B3E2FE /* PruebaViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PruebaViewController.swift; sourceTree = "<group>"; };
 		A99077B91D915A8A00B3E2FE /* PruebaViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PruebaViewController.xib; sourceTree = "<group>"; };
 		A9A888671D8E74F30071A7AD /* Geo+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Geo+CoreDataClass.swift"; sourceTree = "<group>"; };
 		A9A888691D8E74F30071A7AD /* PdfBook+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "PdfBook+CoreDataClass.swift"; sourceTree = "<group>"; };
@@ -93,6 +95,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A90401541D92919200E1852C /* View */ = {
+			isa = PBXGroup;
+			children = (
+				A90401501D92918D00E1852C /* CellBookTableViewCell.swift */,
+				A90401511D92918D00E1852C /* CellBookTableViewCell.xib */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
 		A93185F41D881D3A00EFB49E /* Utils */ = {
 			isa = PBXGroup;
 			children = (
@@ -134,7 +145,6 @@
 				A94004DC1D90017200DCDE57 /* LoadViewController.swift */,
 				A94004DD1D90017200DCDE57 /* LoadViewController.xib */,
 				A94004E31D9083F900DCDE57 /* BooksTableViewController.swift */,
-				A99077B81D915A8A00B3E2FE /* PruebaViewController.swift */,
 				A99077B91D915A8A00B3E2FE /* PruebaViewController.xib */,
 			);
 			name = Controller;
@@ -146,6 +156,7 @@
 				A94004E01D90017B00DCDE57 /* Controller */,
 				A93185F41D881D3A00EFB49E /* Utils */,
 				A9A8888A1D8EF9DB0071A7AD /* Test */,
+				A90401541D92919200E1852C /* View */,
 				A98941471D86C86B0041F408 /* Model */,
 				A98941131D8686060041F408 /* hackerbookv2 */,
 				A9A888901D8EFB4B0071A7AD /* hackerbookv2Tests */,
@@ -276,6 +287,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A90401531D92918D00E1852C /* CellBookTableViewCell.xib in Resources */,
 				A94004DF1D90017200DCDE57 /* LoadViewController.xib in Resources */,
 				A989411F1D8686060041F408 /* LaunchScreen.storyboard in Resources */,
 				A94004BD1D8FE66200DCDE57 /* emptyPdf.pdf in Resources */,
@@ -293,6 +305,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A90401521D92918D00E1852C /* CellBookTableViewCell.swift in Sources */,
 				A99077B51D91221400B3E2FE /* Books+CoreDataProperties.swift in Sources */,
 				A99077B41D91221400B3E2FE /* PdfBook+CoreDataProperties.swift in Sources */,
 				A93185F31D87FFFB00EFB49E /* AsyncLoadRemoteFile.swift in Sources */,
@@ -300,7 +313,6 @@
 				A94004DE1D90017200DCDE57 /* LoadViewController.swift in Sources */,
 				A98941171D8686060041F408 /* ViewController.swift in Sources */,
 				A967F8DC1D8BF12A00535FC4 /* JSONProcessing.swift in Sources */,
-				A99077BA1D915A8A00B3E2FE /* PruebaViewController.swift in Sources */,
 				A9A8887B1D8E74F30071A7AD /* Image+CoreDataClass.swift in Sources */,
 				A99077B31D91221400B3E2FE /* Geo+CoreDataProperties.swift in Sources */,
 				A9A888751D8E74F30071A7AD /* Geo+CoreDataClass.swift in Sources */,
