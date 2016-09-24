@@ -15,6 +15,8 @@ class BooksTableViewController: CoreDataTableViewController {
         registerNib()
         self.navigationItem.hidesBackButton = true
         
+       
+        
         // Do any additional setup after loading the view.
     }
 
@@ -34,11 +36,25 @@ class BooksTableViewController: CoreDataTableViewController {
 
         let booktag = fetchedResultsController?.object(at: indexPath) as! BookTag
         let cell = tableView.dequeueReusableCell(withIdentifier: CellBookTableViewCell.cellId) as! CellBookTableViewCell
-        
+        cell.accessoryType = UITableViewCellAccessoryType.detailDisclosureButton
         cell.startObserving(bookTag: booktag)
         return cell
     }
     
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        // Fech cell
+        
+        let booktag = fetchedResultsController?.object(at: indexPath) as! BookTag
+        
+        print("*****",booktag.book?.download,booktag.book?.favorite)
+        
+        let nVC = PdfViewController(bookTag: booktag)
+        
+        navigationController?.pushViewController(nVC, animated: true)
+        
+        
+    }
    
     
 

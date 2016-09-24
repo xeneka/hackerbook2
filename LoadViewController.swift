@@ -69,13 +69,11 @@ extension LoadViewController{
             let fr = NSFetchRequest<BookTag>(entityName: BookTag.entityName)
             fr.fetchBatchSize = 50
             
-            fr.sortDescriptors=[NSSortDescriptor(key:"tags", ascending:false)]
+            fr.sortDescriptors=[NSSortDescriptor(key:"tags.orderTag", ascending:true)]
             
-            let fc = NSFetchedResultsController(fetchRequest: fr, managedObjectContext: (model?.context)!, sectionNameKeyPath: nil, cacheName: nil)
+            let fc = NSFetchedResultsController(fetchRequest: fr, managedObjectContext: (model?.context)!, sectionNameKeyPath: "tags.orderTag", cacheName: nil)
             
-            print("----")
-            
-            NSLog("%@", fr);
+           
             
             
           let nVC = BooksTableViewController(fetchedResultsController: fc as! NSFetchedResultsController<NSFetchRequestResult>, style: .plain)

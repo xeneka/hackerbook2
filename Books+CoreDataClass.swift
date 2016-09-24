@@ -34,34 +34,34 @@ public class Books: NSManagedObject {
 }
 
 
-//MARK: - KVO
-
-extension Books{
-    
-    static func observableKeys() -> [String] {return ["download", "favorite"]}
-    
-    func setupKVO(){
-        
-        for each in Books.observableKeys(){
-            self.addObserver(self, forKeyPath: each, options: [], context: nil)
-        }
-        
-    }
-    
-    func teardownKVO(){
-        
-        for each in Books.observableKeys(){
-            self.removeObserver(self, forKeyPath: each)
-        }
-        
-    }
-    
-}
-
-
-
-//MARK: - lifecycle
-
+////MARK: - KVO
+//
+//extension Books{
+//    
+//    static func observableKeys() -> [String] {return ["download", "favorite"]}
+//    
+//    func setupKVO(){
+//        
+//        for each in Books.observableKeys(){
+//            self.addObserver(self, forKeyPath: each, options: [], context: nil)
+//        }
+//        
+//    }
+//    
+//    func teardownKVO(){
+//        
+//        for each in Books.observableKeys(){
+//            self.removeObserver(self, forKeyPath: each)
+//        }
+//        
+//    }
+//    
+//}
+//
+//
+//
+////MARK: - lifecycle
+//
 
 //MARK: - Lifecycle
 //extension Books{

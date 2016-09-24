@@ -8,8 +8,44 @@
 
 import Foundation
 import CoreData
+import CoreLocation
+
 
 
 public class Geo: NSManagedObject {
 
+    static let entityName = "Geo"
+    
+    convenience init(location: CLLocation, nota:Annotations, inContext context: NSManagedObjectContext) {
+        
+        let entity = NSEntityDescription.entity(forEntityName: Geo.entityName, in: context)!
+        
+        self.init(entity:entity, insertInto:context)
+     
+       
+        nota.geo?.latitude = location.coordinate.latitude
+        nota.geo?.longitude = location.coordinate.longitude
+        
+        let geoCoder = CLGeocoder()
+        
+        geoCoder.reverseGeocodeLocation(location) { (placemark, error) in
+            
+            if ((error) != nil){
+                print ("Error en la localización inversa")
+            }
+            
+            
+            
+            print("***",placemark?.description)
+            
+            
+            
+            
+            
+            
+        }
+        
+    }
+    
+    
 }
