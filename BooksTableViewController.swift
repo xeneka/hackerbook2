@@ -38,6 +38,9 @@ class BooksTableViewController: CoreDataTableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: CellBookTableViewCell.cellId) as! CellBookTableViewCell
         cell.accessoryType = UITableViewCellAccessoryType.detailDisclosureButton
         cell.startObserving(bookTag: booktag)
+        
+        
+        
         return cell
     }
     

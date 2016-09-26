@@ -27,6 +27,10 @@
 	</dict>
 	<key>NSCameraUsageDescription</key>
 	<string>Necesito usar la Camara para tus notas</string>
+	<key>NSLocationAlwaysUsageDescription</key>
+	<string>Necesitamos usar el GPS para Localizar tus notas</string>
+	<key>NSLocationUsageDescription</key>
+	<string>Necesitamos usar GPS para localizar las notas</string>
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>Incorporar notas a HackerBook</string>
 	<key>UILaunchStoryboardName</key>

@@ -28,6 +28,20 @@ public class Image: NSManagedObject {
         
     }
     
+    convenience init(image: Data, note:Annotations, context: NSManagedObjectContext){
+        
+        let entity = NSEntityDescription.entity(forEntityName: Image.entityName, in: context)!
+        
+        self.init(entity:entity, insertInto:context)
+        
+        self.annotations = note
+        self.image = image as NSData?
+        
+        
+        
+        
+    }
+    
     
     
     

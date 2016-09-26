@@ -12,7 +12,7 @@ import CoreData
 
 
 // Variable para todos los procesos
-let model = CoreDataStack(modelName: "Model")
+//let model = CoreDataStack(modelName: "Model")
 let mainBundle = Bundle.main
 
 let defaultImage = mainBundle.url(forResource: "emptyBookCover", withExtension: "png")!

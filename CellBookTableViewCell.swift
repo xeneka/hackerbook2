@@ -15,6 +15,8 @@ class CellBookTableViewCell: UITableViewCell {
     
     fileprivate let _nc = NotificationCenter.default
     
+    fileprivate let observableKey = ["book.Images.image","book.favorite","book.download"]
+    
     fileprivate var _booktag:BookTag? = nil
     
     override func awakeFromNib() {
@@ -29,10 +31,13 @@ class CellBookTableViewCell: UITableViewCell {
     }
     
     @IBOutlet weak var imageBook: UIImageView!
+    @IBOutlet weak var favoriteImage: UIImageView!
     
     @IBOutlet weak var bookTitle: UILabel!
     
-   
+    override func prepareForReuse() {
+        stopObserving()
+    }
     
 }
 
@@ -43,8 +48,24 @@ extension CellBookTableViewCell{
         
            self._booktag = bookTag
             syncViewWithModel()
-           bookTag.addObserver(self, forKeyPath: "book.Images.image", options: [], context: nil)
+        
+        for each in observableKey {
+            
+        
+            bookTag.addObserver(self, forKeyPath: each, options: [], context: nil)
+        }
+        
+        
        
+    }
+    
+    
+    func stopObserving(){
+        
+        for each in observableKey {
+            _booktag?.removeObserver(self, forKeyPath: each)
+        }
+        
     }
     
 
@@ -55,6 +76,8 @@ extension CellBookTableViewCell{
     func syncViewWithModel(){
         imageBook.image = UIImage(data: self._booktag?.book?.images?.image as! Data)
         bookTitle.text = self._booktag?.book?.title
+        favoriteImage.isHidden = !(_booktag?.book?.favorite)!
+        
     }
     
     

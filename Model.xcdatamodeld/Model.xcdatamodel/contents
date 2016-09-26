@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="11232" systemVersion="15G1004" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="11232" systemVersion="16A323" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
     <entity name="Annotations" representedClassName=".Annotations" syncable="YES">
         <attribute name="annontation" attributeType="String" syncable="YES"/>
         <attribute name="dateCreate" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
         <attribute name="dateModification" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
-        <relationship name="books" maxCount="1" deletionRule="Nullify" destinationEntity="Books" inverseName="annotations" inverseEntity="Books" syncable="YES"/>
+        <relationship name="books" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Books" inverseName="annotations" inverseEntity="Books" syncable="YES"/>
         <relationship name="geo" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="Geo" inverseName="annotation" inverseEntity="Geo" syncable="YES"/>
         <relationship name="image" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="Image" inverseName="annotations" inverseEntity="Image" syncable="YES"/>
     </entity>
@@ -48,13 +48,13 @@
         <relationship name="booktag" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="BookTag" inverseName="tags" inverseEntity="BookTag" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Annotations" positionX="-162" positionY="-486" width="128" height="88"/>
+        <element name="Annotations" positionX="-110" positionY="-484" width="128" height="133"/>
         <element name="Authors" positionX="-450" positionY="-117" width="128" height="75"/>
         <element name="Books" positionX="-380" positionY="-486" width="128" height="195"/>
+        <element name="BookTag" positionX="-200" positionY="-192" width="128" height="75"/>
         <element name="Geo" positionX="-63" positionY="-228" width="128" height="30"/>
         <element name="Image" positionX="-225" positionY="-264" width="128" height="30"/>
         <element name="PdfBook" positionX="-128" positionY="-126" width="128" height="30"/>
         <element name="Tags" positionX="-504" positionY="-273" width="128" height="90"/>
-        <element name="BookTag" positionX="-297" positionY="-333" width="128" height="75"/>
     </elements>
 </model>

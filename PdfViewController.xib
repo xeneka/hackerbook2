@@ -26,7 +26,11 @@
                     <frame key="frameInset" height="44"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                     <items>
-                        <barButtonItem systemItem="bookmarks" id="BHi-gN-sXF"/>
+                        <barButtonItem systemItem="bookmarks" id="BHi-gN-sXF">
+                            <connections>
+                                <action selector="viewNotes:" destination="-1" id="V3X-Dk-mPc"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem style="plain" systemItem="flexibleSpace" id="lht-vm-ghI"/>
                         <barButtonItem systemItem="compose" id="bnH-QO-Onq">
                             <connections>
@@ -34,9 +38,9 @@
                             </connections>
                         </barButtonItem>
                         <barButtonItem style="plain" systemItem="flexibleSpace" id="sGs-L9-CHd"/>
-                        <barButtonItem title="Item" image="favorites.png" id="AVx-TE-9JS">
+                        <barButtonItem image="favorites.png" id="AVx-TE-9JS">
                             <connections>
-                                <action selector="favorite:" destination="-1" id="TTw-cj-WPC"/>
+                                <action selector="isFavorite:" destination="-1" id="ZKT-YX-Ezh"/>
                             </connections>
                         </barButtonItem>
                     </items>

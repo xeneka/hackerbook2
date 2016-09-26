@@ -31,61 +31,11 @@ public class Books: NSManagedObject {
         
     }
     
+    
+    
+    
 }
 
-
-////MARK: - KVO
-//
-//extension Books{
-//    
-//    static func observableKeys() -> [String] {return ["download", "favorite"]}
-//    
-//    func setupKVO(){
-//        
-//        for each in Books.observableKeys(){
-//            self.addObserver(self, forKeyPath: each, options: [], context: nil)
-//        }
-//        
-//    }
-//    
-//    func teardownKVO(){
-//        
-//        for each in Books.observableKeys(){
-//            self.removeObserver(self, forKeyPath: each)
-//        }
-//        
-//    }
-//    
-//}
-//
-//
-//
-////MARK: - lifecycle
-//
-
-//MARK: - Lifecycle
-//extension Books{
-//    
-//    // Se llama una sola vez
-//    public override func awakeFromInsert() {
-//        super.awakeFromInsert()
-//        
-//        setupKVO()
-//    }
-//    
-//    // Se llama un huevo de veces
-//    public override func awakeFromFetch() {
-//        super.awakeFromFetch()
-//        
-//        setupKVO()
-//    }
-//    
-//    public override func willTurnIntoFault() {
-//        super.willTurnIntoFault()
-//        
-//        teardownKVO()
-//    }
-//}
 
 
 

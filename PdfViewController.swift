@@ -33,6 +33,24 @@ class PdfViewController: UIViewController {
         
     }
     
+    @IBAction func isFavorite(_ sender: AnyObject) {
+        
+        _booktag?.book?.favorite = !(_booktag?.book?.favorite)!
+        
+    }
+    
+    
+    @IBAction func viewNotes(_ sender: AnyObject) {
+        
+      
+        
+        var nVC = ListNoteViewController()
+        
+        
+        self.navigationController?.pushViewController(nVC, animated: true)
+        
+        
+    }
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")

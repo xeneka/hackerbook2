@@ -24,6 +24,8 @@ class NoteViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        
 
         // Do any additional setup after loading the view.
     }
@@ -75,14 +77,24 @@ extension NoteViewController:UIImagePickerControllerDelegate, UINavigationContro
         
          photoImage.image = info[UIImagePickerControllerOriginalImage] as! UIImage?
         
-//         _bookTag?.book?.=;UIImageJPEGRepresentation(info[UIImagePickerControllerOriginalImage] as! UIImage, 0.9)  as! NSData
+        
+        guard  let imagePicker = info[UIImagePickerControllerOriginalImage] as! UIImage? else{
+            print("Imagen no Validad")
+            return
+        }
+        
+        let image = UIImageJPEGRepresentation(imagePicker, 1)
         
         
-        let image = UIImageJPEGRepresentation((info[UIImagePickerControllerOriginalImage] as! UIImage?)!, 0.9)
+        let nota = Annotations(title: "NOTAAAA", image: image! as Data, book: (_bookTag?.book)!, inContext: (_bookTag?.managedObjectContext)!)
         
-        let nota = Annotations(title: "NOTAAAA", image: image! as Data, inContext: (_bookTag?.managedObjectContext)!)
+      
+        //_bookTag?.book?.addNote(note: nota, inContext: (_bookTag?.managedObjectContext)!)
+      
+        // Antes de guardar nota tiene asignado un libro
+        try! _bookTag?.managedObjectContext?.save()
+        // Despues de guardar no lo tiene
         
-        _bookTag?.book?.addToAnnotations(nota)
         
         // Quitamos de enmedio al picker
         self.dismiss(animated: true) {

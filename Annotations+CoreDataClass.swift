@@ -18,7 +18,7 @@ public class Annotations: NSManagedObject {
     // Declaro el location manager
     fileprivate let posicion = CLLocationManager()
     
-    convenience init(title:String,image:Data ,inContext context:NSManagedObjectContext) {
+    convenience init(title:String,image:Data , book: Books, inContext context:NSManagedObjectContext) {
         
         let entity = NSEntityDescription.entity(forEntityName: Annotations.entityName, in: context)!
         
@@ -27,10 +27,15 @@ public class Annotations: NSManagedObject {
         self.annontation = title
         self.dateCreate = NSDate()
         self.dateModification = NSDate()
-        self.image?.image = image as NSData?
+        self.books = book
+        
+
+        
+        _ = Image(image: image, note: self, context: context)
 
         
         
+    
             
             
         }
@@ -41,30 +46,11 @@ public class Annotations: NSManagedObject {
 
 
 
-extension Annotations:CLLocationManagerDelegate{
-
-    public func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        
-        // Paramos que siga buscando la localiación. Consume mucha bateria
-        
-        self.posicion.stopUpdatingLocation()
-        
-        
-        // Mandamos la nota
-        print(locations.last?.coordinate.latitude)
-        
-        let _ = Geo(location: locations.last!, nota: self, inContext: self.managedObjectContext!)
-        
-        
-    }
-    
-    
-}
 
 
 //MARK: - KVO
 extension Annotations{
-    static func observableKeys() -> [String] {return ["Annotations.Images.image"]}
+    static func observableKeys() -> [String] {return ["annontation","image.Image"]}
     
     func setupKVO(){
         
@@ -89,6 +75,17 @@ extension Annotations{
     }
     
     
+    public override func observeValue(forKeyPath keyPath: String?,
+                                      of object: Any?,
+                                      change: [NSKeyValueChangeKey : Any]?,
+                                      context: UnsafeMutableRawPointer?) {
+        
+        // actualizar modificationDate
+        self.dateModification = NSDate()
+       
+    }
+    
+    
 }
 
 
@@ -98,10 +95,10 @@ extension Annotations{
     // Se llama una sola vez
     public override func awakeFromInsert() {
         super.awakeFromInsert()
+    
         
-        //setupKVO()
         
-        super.awakeFromInsert()
+        setupKVO()
         
         let status = CLLocationManager.authorizationStatus()
         
@@ -116,6 +113,11 @@ extension Annotations{
             
             // Empieza a funcionar
             posicion.startUpdatingLocation()
+            
+        
+            
+        }else{
+         print("No tienes autorizacion para ejecutar Location Manager")
         }
         
     }
@@ -134,6 +136,27 @@ extension Annotations{
     }
 }
 
+
+extension Annotations:CLLocationManagerDelegate{
+    
+    
+    public func locationManager(_ manager: CLLocationManager, didUpdateToLocations locations: [CLLocation]) {
+        
+        // Paramos que siga buscando la localiación. Consume mucha bateria
+        
+        self.posicion.stopUpdatingLocation()
+        
+        
+        // Mandamos la nota
+        print(locations.last?.coordinate.latitude)
+        
+        let _ = Geo(location: locations.last!, nota: self, inContext: self.managedObjectContext!)
+        
+        
+    }
+    
+    
+}
 
 
 
