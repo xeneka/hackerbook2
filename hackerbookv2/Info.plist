@@ -31,6 +31,8 @@
 	<string>Necesitamos usar el GPS para Localizar tus notas</string>
 	<key>NSLocationUsageDescription</key>
 	<string>Necesitamos usar GPS para localizar las notas</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>Necesito guardar la localizacion de tú nota</string>
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>Incorporar notas a HackerBook</string>
 	<key>UILaunchStoryboardName</key>

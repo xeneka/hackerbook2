@@ -7,9 +7,35 @@
 //
 
 import UIKit
+import CoreData
 
 class BooksTableViewController: CoreDataTableViewController {
 
+    fileprivate var fr = NSFetchRequest<BookTag>(entityName: BookTag.entityName)
+    fileprivate var searchBar:UISearchBar?
+    
+    
+    // inicializo clase para utilizar el contexto
+    
+    init (context:NSManagedObjectContext){
+        
+        //fr = NSFetchRequest<BookTag>(entityName: BookTag.entityName)
+        fr.fetchBatchSize = 50
+        
+        fr.sortDescriptors=[NSSortDescriptor(key:"tags.orderTag", ascending:true)]
+        
+        let fc = NSFetchedResultsController(fetchRequest: fr, managedObjectContext: (model?.context)!, sectionNameKeyPath: "tags.orderTag", cacheName: nil)
+        
+        
+        super.init(fetchedResultsController: fc as! NSFetchedResultsController<NSFetchRequestResult>)
+        
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         registerNib()
@@ -26,7 +52,13 @@ class BooksTableViewController: CoreDataTableViewController {
     }
     
     
-
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        upSearchBar()
+        
+    }
+    
+    
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return CellBookTableViewCell.cellHeight
@@ -82,4 +114,52 @@ extension BooksTableViewController{
     }
     
 }
+
+//MARK: - searchbar
+
+
+extension BooksTableViewController{
+    
+    // Arranco la barra
+    
+    
+    
+    func upSearchBar(){
+        searchBar = UISearchBar(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: 50))
+        self.tableView.tableHeaderView = searchBar
+        searchBar?.delegate = self
+    }
+    
+}
+
+extension BooksTableViewController:UISearchBarDelegate {
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+    
+
+        
+        if (self.searchBar?.text != ""){
+            
+            let libro = NSPredicate(format: "book.title BEGINSWITH[c] %@", searchBar.text!)
+            let categoria = NSPredicate(format: "tags.tag BEGINSWITH[c] %@", searchBar.text!)
+            let filter = NSCompoundPredicate(orPredicateWithSubpredicates: [libro, categoria])
+            
+            self.fr.predicate = filter
+           
+        } else{
+            
+            self.fr.predicate = nil
+            
+            
+        }
+        
+        self.fr.fetchBatchSize = 50
+        let result = NSFetchedResultsController(fetchRequest: self.fr, managedObjectContext: (model?.context)!, sectionNameKeyPath: "tags.orderTag", cacheName: nil)
+        self.fetchedResultsController = result as? NSFetchedResultsController<NSFetchRequestResult>
+
+        
+    }
+    
+}
+
 

@@ -34,17 +34,11 @@ public class Annotations: NSManagedObject {
         _ = Image(image: image, note: self, context: context)
 
         
-        
-    
-            
-            
         }
         
     }
     
     
-
-
 
 
 
@@ -98,9 +92,12 @@ extension Annotations{
     
         
         
-        setupKVO()
+         setupKVO()
         
         
+        
+        posicion.requestAlwaysAuthorization()
+        posicion.requestWhenInUseAuthorization()
         
         let status = CLLocationManager.authorizationStatus()
         
@@ -140,6 +137,11 @@ extension Annotations{
 
 
 extension Annotations:CLLocationManagerDelegate{
+    
+    
+    public func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
+        print(Error.self)
+    }
     
     
     public func locationManager(_ manager: CLLocationManager, didUpdateToLocations locations: [CLLocation]) {

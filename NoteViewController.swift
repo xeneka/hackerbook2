@@ -44,7 +44,7 @@ class NoteViewController: UIViewController {
         
         let nota = Annotations(title: textNote.text!, image: UIImageJPEGRepresentation(photoImage.image!, 0.9)! as Data, book: (_bookTag?.book)!, inContext: (_bookTag?.managedObjectContext)!)
         
-        
+      
     }
     
     @IBAction func takePhoto(_ sender: AnyObject) {
