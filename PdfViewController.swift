@@ -42,10 +42,16 @@ class PdfViewController: UIViewController {
     
     @IBAction func viewNotes(_ sender: AnyObject) {
         
+       
       
+        let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
+        layout.sectionInset = UIEdgeInsets(top: 20, left: 5, bottom: 10, right: 5)
+        layout.itemSize = CGSize(width: 200, height: 200)
         
-        var nVC = ListNoteViewController()
         
+        var nVC = ListNoteCollectionViewController(book: (_booktag?.book)!)
+    
+        //var nVC = ListNoteCollectionViewController(collectionViewLayout: layout)
         
         self.navigationController?.pushViewController(nVC, animated: true)
         

@@ -50,6 +50,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             
             window?.rootViewController = navVC
             window?.makeKeyAndVisible()
+            
 
             
         }else{
@@ -91,7 +92,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
        
         
-        model?.autoSave(10)
+        //model?.autoSave(10)
         return true
     }
 

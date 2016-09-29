@@ -42,13 +42,8 @@
 		A9A888811D8E74F30071A7AD /* Books+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9A888731D8E74F30071A7AD /* Books+CoreDataClass.swift */; };
 		A9A888861D8EA7EC0071A7AD /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9A888841D8EA7EC0071A7AD /* CoreDataStack.swift */; };
 		A9A888871D8EA7EC0071A7AD /* CoreDataTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9A888851D8EA7EC0071A7AD /* CoreDataTableViewController.swift */; };
+		A9C0728A1D9937BC00A593B7 /* ListNoteCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9C072891D9937BC00A593B7 /* ListNoteCollectionViewController.swift */; };
 		A9F9BBDD1D97AD1B00DD57F7 /* start.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A9F9BBDC1D97AD1B00DD57F7 /* start.jpg */; };
-		A9F9BBE81D981B1B00DD57F7 /* ListNoteCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9F9BBE61D981B1B00DD57F7 /* ListNoteCollectionViewController.swift */; };
-		A9F9BBE91D981B1B00DD57F7 /* ListNoteCollectionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A9F9BBE71D981B1B00DD57F7 /* ListNoteCollectionViewController.xib */; };
-		A9F9BBEC1D983D4800DD57F7 /* ListNoteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9F9BBEA1D983D4800DD57F7 /* ListNoteViewController.swift */; };
-		A9F9BBED1D983D4800DD57F7 /* ListNoteViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A9F9BBEB1D983D4800DD57F7 /* ListNoteViewController.xib */; };
-		A9F9BBF41D98486000DD57F7 /* NoteCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9F9BBF21D98486000DD57F7 /* NoteCollectionViewCell.swift */; };
-		A9F9BBF51D98486000DD57F7 /* NoteCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A9F9BBF31D98486000DD57F7 /* NoteCollectionViewCell.xib */; };
 		A9FCDA061D93FE34006542F6 /* PdfViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9FCDA041D93FE34006542F6 /* PdfViewController.swift */; };
 		A9FCDA071D93FE34006542F6 /* PdfViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A9FCDA051D93FE34006542F6 /* PdfViewController.xib */; };
 		A9FCDA0B1D945919006542F6 /* favorites.png in Resources */ = {isa = PBXBuildFile; fileRef = A9FCDA0A1D945919006542F6 /* favorites.png */; };
@@ -94,13 +89,8 @@
 		A9A888851D8EA7EC0071A7AD /* CoreDataTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataTableViewController.swift; sourceTree = "<group>"; };
 		A9A888911D8EFB4B0071A7AD /* hackerbookv2Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = hackerbookv2Tests.swift; sourceTree = "<group>"; };
 		A9A888931D8EFB4B0071A7AD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A9C072891D9937BC00A593B7 /* ListNoteCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListNoteCollectionViewController.swift; sourceTree = "<group>"; };
 		A9F9BBDC1D97AD1B00DD57F7 /* start.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = start.jpg; sourceTree = "<group>"; };
-		A9F9BBE61D981B1B00DD57F7 /* ListNoteCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListNoteCollectionViewController.swift; sourceTree = "<group>"; };
-		A9F9BBE71D981B1B00DD57F7 /* ListNoteCollectionViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ListNoteCollectionViewController.xib; sourceTree = "<group>"; };
-		A9F9BBEA1D983D4800DD57F7 /* ListNoteViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListNoteViewController.swift; sourceTree = "<group>"; };
-		A9F9BBEB1D983D4800DD57F7 /* ListNoteViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ListNoteViewController.xib; sourceTree = "<group>"; };
-		A9F9BBF21D98486000DD57F7 /* NoteCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoteCollectionViewCell.swift; sourceTree = "<group>"; };
-		A9F9BBF31D98486000DD57F7 /* NoteCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NoteCollectionViewCell.xib; sourceTree = "<group>"; };
 		A9FCDA041D93FE34006542F6 /* PdfViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PdfViewController.swift; sourceTree = "<group>"; };
 		A9FCDA051D93FE34006542F6 /* PdfViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PdfViewController.xib; sourceTree = "<group>"; };
 		A9FCDA0A1D945919006542F6 /* favorites.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = favorites.png; sourceTree = "<group>"; };
@@ -173,12 +163,7 @@
 				A9FCDA051D93FE34006542F6 /* PdfViewController.xib */,
 				A967394C1D95348400B8C49F /* NoteViewController.swift */,
 				A967394D1D95348400B8C49F /* NoteViewController.xib */,
-				A9F9BBE61D981B1B00DD57F7 /* ListNoteCollectionViewController.swift */,
-				A9F9BBE71D981B1B00DD57F7 /* ListNoteCollectionViewController.xib */,
-				A9F9BBEA1D983D4800DD57F7 /* ListNoteViewController.swift */,
-				A9F9BBEB1D983D4800DD57F7 /* ListNoteViewController.xib */,
-				A9F9BBF21D98486000DD57F7 /* NoteCollectionViewCell.swift */,
-				A9F9BBF31D98486000DD57F7 /* NoteCollectionViewCell.xib */,
+				A9C072891D9937BC00A593B7 /* ListNoteCollectionViewController.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -328,11 +313,8 @@
 				A989411C1D8686060041F408 /* Assets.xcassets in Resources */,
 				A9FCDA071D93FE34006542F6 /* PdfViewController.xib in Resources */,
 				A9FCDA0B1D945919006542F6 /* favorites.png in Resources */,
-				A9F9BBED1D983D4800DD57F7 /* ListNoteViewController.xib in Resources */,
 				A94004BC1D8FE66200DCDE57 /* emptyBookCover.png in Resources */,
 				A967394F1D95348400B8C49F /* NoteViewController.xib in Resources */,
-				A9F9BBE91D981B1B00DD57F7 /* ListNoteCollectionViewController.xib in Resources */,
-				A9F9BBF51D98486000DD57F7 /* NoteCollectionViewCell.xib in Resources */,
 				A989411A1D8686060041F408 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -348,11 +330,9 @@
 				A90401521D92918D00E1852C /* CellBookTableViewCell.swift in Sources */,
 				A9A270131D986B0400A49572 /* Tags+CoreDataProperties.swift in Sources */,
 				A9A2701A1D986B0400A49572 /* Annotations+CoreDataProperties.swift in Sources */,
-				A9F9BBEC1D983D4800DD57F7 /* ListNoteViewController.swift in Sources */,
 				A9A270151D986B0400A49572 /* BookTag+CoreDataProperties.swift in Sources */,
 				A9A270171D986B0400A49572 /* Geo+CoreDataProperties.swift in Sources */,
 				A9A270181D986B0400A49572 /* PdfBook+CoreDataProperties.swift in Sources */,
-				A9F9BBF41D98486000DD57F7 /* NoteCollectionViewCell.swift in Sources */,
 				A93185F31D87FFFB00EFB49E /* AsyncLoadRemoteFile.swift in Sources */,
 				A94004DE1D90017200DCDE57 /* LoadViewController.swift in Sources */,
 				A98941171D8686060041F408 /* ViewController.swift in Sources */,
@@ -365,10 +345,10 @@
 				A9A270161D986B0400A49572 /* Books+CoreDataProperties.swift in Sources */,
 				A94004E41D9083F900DCDE57 /* BooksTableViewController.swift in Sources */,
 				A9A8887F1D8E74F30071A7AD /* Annotations+CoreDataClass.swift in Sources */,
+				A9C0728A1D9937BC00A593B7 /* ListNoteCollectionViewController.swift in Sources */,
 				A9A888871D8EA7EC0071A7AD /* CoreDataTableViewController.swift in Sources */,
 				A9A270191D986B0400A49572 /* Image+CoreDataProperties.swift in Sources */,
 				A9A270141D986B0400A49572 /* Authors+CoreDataProperties.swift in Sources */,
-				A9F9BBE81D981B1B00DD57F7 /* ListNoteCollectionViewController.swift in Sources */,
 				A98941281D8686330041F408 /* Model.xcdatamodeld in Sources */,
 				A9A888861D8EA7EC0071A7AD /* CoreDataStack.swift in Sources */,
 				A99077B61D91221400B3E2FE /* BookTag+CoreDataClass.swift in Sources */,

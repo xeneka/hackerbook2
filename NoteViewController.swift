@@ -24,6 +24,8 @@ class NoteViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        tapCloseKeyboard()
+        textNote.delegate = self
         
         
 
@@ -38,6 +40,12 @@ class NoteViewController: UIViewController {
     @IBOutlet weak var photoImage: UIImageView!
 
     @IBOutlet weak var textNote: UITextField!
+    @IBAction func saveNote(_ sender: AnyObject) {
+        
+        let nota = Annotations(title: textNote.text!, image: UIImageJPEGRepresentation(photoImage.image!, 0.9)! as Data, book: (_bookTag?.book)!, inContext: (_bookTag?.managedObjectContext)!)
+        
+        
+    }
     
     @IBAction func takePhoto(_ sender: AnyObject) {
         
@@ -78,21 +86,21 @@ extension NoteViewController:UIImagePickerControllerDelegate, UINavigationContro
          photoImage.image = info[UIImagePickerControllerOriginalImage] as! UIImage?
         
         
-        guard  let imagePicker = info[UIImagePickerControllerOriginalImage] as! UIImage? else{
-            print("Imagen no Validad")
-            return
-        }
+//        guard  let imagePicker = info[UIImagePickerControllerOriginalImage] as! UIImage? else{
+//            print("Imagen no Valida")
+//            return
+//        }
+//        
+//        let image = UIImageJPEGRepresentation(imagePicker, 1)
+//        
         
-        let image = UIImageJPEGRepresentation(imagePicker, 1)
         
-        
-        let nota = Annotations(title: "NOTAAAA", image: image! as Data, book: (_bookTag?.book)!, inContext: (_bookTag?.managedObjectContext)!)
         
       
         //_bookTag?.book?.addNote(note: nota, inContext: (_bookTag?.managedObjectContext)!)
       
         // Antes de guardar nota tiene asignado un libro
-        try! _bookTag?.managedObjectContext?.save()
+        //try! _bookTag?.managedObjectContext?.save()
         // Despues de guardar no lo tiene
         
         
@@ -102,6 +110,85 @@ extension NoteViewController:UIImagePickerControllerDelegate, UINavigationContro
         }
 
     }
+    
+    
+}
+
+
+
+//MARK: - observingkeyboard
+
+
+extension NoteViewController{
+    
+    
+    // Observo las varibles que activan y desactivan el teclado
+    func startObserving(){
+    
+    let showKeyBoard = Notification.Name(rawValue: "UIKeyboardWillShowNotification")
+    let closeKeyBoard = Notification.Name(rawValue: "UIKeyboardWillHideNotification")
+        
+    let nc = NotificationCenter.default
+    nc.addObserver(forName: showKeyBoard, object: nil, queue: nil) { (Notification) in
+         print(Notification.self)
+         print("Aparece el teclado")
+        
+        }
+        
+    nc.addObserver(forName: closeKeyBoard, object: nil, queue: nil) { (Notification) in
+            print(Notification.self)
+            print("Desaparece el teclado")
+        }
+        
+        
+   
+        
+    }
+    
+    func stopObserving(){
+        
+       let nc = NotificationCenter.default
+    
+       nc.removeObserver(self)
+        
+        
+    }
+    
+    
+    
+}
+
+
+
+//MARK: - Util habilita el TAP para quitar el keyboard
+
+extension NoteViewController{
+    
+    func tapCloseKeyboard() {
+        
+        let tap = UITapGestureRecognizer(target: self, action: #selector(NoteViewController.closeKeyBoard))
+        view.addGestureRecognizer(tap)
+        
+    }
+    
+    func closeKeyBoard(){
+        
+        view.endEditing(true)
+    }
+    
+}
+
+//MARK: - Habilita el intro del keyboard
+
+
+extension NoteViewController:UITextFieldDelegate {
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        
+         view.endEditing(true)
+         return true
+    }
+    
     
     
 }

@@ -100,6 +100,8 @@ extension Annotations{
         
         setupKVO()
         
+        
+        
         let status = CLLocationManager.authorizationStatus()
         
         // Compruebo si tengo acceso a la localización

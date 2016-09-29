@@ -18,13 +18,9 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="VMe-WT-5mg">
-                    <frame key="frameInset" width="375" height="509"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                </imageView>
-                <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="yCG-ga-pDR">
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="VMe-WT-5mg"/>
+                <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="yCG-ga-pDR">
                     <frame key="frameInset" minX="-8" height="44" maxX="8"/>
-                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                     <items>
                         <barButtonItem style="plain" systemItem="flexibleSpace" id="xAP-Q2-HJM"/>
                         <barButtonItem systemItem="camera" id="ESS-JY-qtf">
@@ -34,17 +30,35 @@
                         </barButtonItem>
                         <barButtonItem width="42" style="plain" systemItem="fixedSpace" id="RxQ-hI-vc9"/>
                         <barButtonItem style="plain" systemItem="flexibleSpace" id="FPk-Pl-eWW"/>
+                        <barButtonItem systemItem="save" id="7bF-9B-T23">
+                            <connections>
+                                <action selector="saveNote:" destination="-1" id="F6H-Gj-5mw"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem style="plain" systemItem="flexibleSpace" id="BnU-Ga-TtL"/>
                     </items>
                 </toolbar>
-                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cCg-iv-Fr7">
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cCg-iv-Fr7">
                     <frame key="frameInset" minX="-8" minY="517" width="383" height="30"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <nil key="textColor"/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <textInputTraits key="textInputTraits"/>
                 </textField>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="cCg-iv-Fr7" firstAttribute="top" secondItem="VMe-WT-5mg" secondAttribute="bottom" constant="8" id="298-Bo-Ulz"/>
+                <constraint firstItem="VMe-WT-5mg" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="7Nw-fc-Zi9"/>
+                <constraint firstAttribute="trailing" secondItem="VMe-WT-5mg" secondAttribute="trailing" id="H8e-Jo-boK"/>
+                <constraint firstItem="cCg-iv-Fr7" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="NeP-E1-G1o"/>
+                <constraint firstItem="cCg-iv-Fr7" firstAttribute="top" secondItem="VMe-WT-5mg" secondAttribute="bottom" constant="8" id="RH7-na-cfQ"/>
+                <constraint firstAttribute="bottom" secondItem="yCG-ga-pDR" secondAttribute="bottom" id="STy-Bx-XOI"/>
+                <constraint firstItem="yCG-ga-pDR" firstAttribute="top" secondItem="cCg-iv-Fr7" secondAttribute="bottom" constant="76" id="ZmA-uD-og6"/>
+                <constraint firstAttribute="trailing" secondItem="yCG-ga-pDR" secondAttribute="trailing" id="dlH-M2-y5z"/>
+                <constraint firstAttribute="trailing" secondItem="cCg-iv-Fr7" secondAttribute="trailing" id="efP-RA-Q8K"/>
+                <constraint firstItem="VMe-WT-5mg" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="qUd-l4-kVA"/>
+                <constraint firstItem="yCG-ga-pDR" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="yyd-mx-2em"/>
+            </constraints>
             <point key="canvasLocation" x="34.5" y="107.5"/>
         </view>
     </objects>

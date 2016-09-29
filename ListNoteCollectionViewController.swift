@@ -2,7 +2,7 @@
 //  ListNoteCollectionViewController.swift
 //  hackerbookv2
 //
-//  Created by Antonio Benavente del Moral on 25/9/16.
+//  Created by Antonio Benavente del Moral on 26/9/16.
 //  Copyright © 2016 Antonio Benavente del Moral. All rights reserved.
 //
 
@@ -10,16 +10,16 @@ import UIKit
 
 private let reuseIdentifier = "Cell"
 
-class ListNoteCollectionViewController: UICollectionViewController {
-    
-    fileprivate var _note:Books?
-    
+class ListNoteCollectionViewController: UICollectionViewController,UICollectionViewDelegateFlowLayout {
+
+    fileprivate var _book:Books
+   
     init(book: Books){
-        
-        let layout = UICollectionViewLayout()
+        let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
+        layout.sectionInset = UIEdgeInsets(top: 20, left: 5, bottom: 10, right: 5)
+        layout.itemSize = CGSize(width: 200, height: 200)
+        _book = book
         super.init(collectionViewLayout: layout)
-        _note = book
-        
         
     }
     
@@ -30,14 +30,14 @@ class ListNoteCollectionViewController: UICollectionViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        
 
+        collectionView?.backgroundColor = UIColor.white
+        
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
         // Register cell classes
-        self.collectionView!.register(UICollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
+        self.collectionView!.register(Customcell.self, forCellWithReuseIdentifier: reuseIdentifier)
 
         // Do any additional setup after loading the view.
     }
@@ -59,30 +59,37 @@ class ListNoteCollectionViewController: UICollectionViewController {
 
     // MARK: UICollectionViewDataSource
 
-    override func numberOfSections(in collectionView: UICollectionView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 1
-    }
+//    override func numberOfSections(in collectionView: UICollectionView) -> Int {
+//        // #warning Incomplete implementation, return the number of sections
+//        return 1
+//    }
 
 
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of items
-        print("*****",_note!.annotations?.count)
-        return 2
+        
+       return (_book.annotations?.count)!
         
     }
 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath)
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! Customcell
+        
+       let notes = Array(_book.annotations!)
+       let note = notes[indexPath.row] as! Annotations
+       
+        cell.nameLabel.text=note.annontation
+        cell.noteImageView.image = UIImage(data: (note.image?.image)! as Data)
     
-        cell.backgroundColor = UIColor(white: 1, alpha: 1)
-        
-        // Configure the cell
-    
-        
-        
         return cell
     }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        
+        return CGSize(width:150, height: 200)
+        
+    }
+   
 
     // MARK: UICollectionViewDelegate
 
@@ -114,5 +121,56 @@ class ListNoteCollectionViewController: UICollectionViewController {
     
     }
     */
+
+}
+
+
+class Customcell:UICollectionViewCell {
+    
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        setupView()
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    let nameLabel:UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
+    }()
+    
+    
+    let noteImageView:UIImageView = {
+        let image = UIImageView()
+        image.contentMode = .scaleAspectFit
+        //image.backgroundColor = UIColor.gray
+        image.translatesAutoresizingMaskIntoConstraints = false
+        return image
+    }()
+
+    
+    func setupView(){
+        addSubview(nameLabel)
+        addSubview(noteImageView)
+        
+
+
+        addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|-8-[v1(150)]-8-|", options: NSLayoutFormatOptions(), metrics: nil, views: ["v1":noteImageView]))
+        
+       addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|-8-[v0]-8-|", options: NSLayoutFormatOptions(), metrics: nil, views: ["v0":nameLabel]))
+        
+        addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|-0-[v1(150)]-[v0]-|", options: NSLayoutFormatOptions(), metrics: nil, views: ["v0":nameLabel, "v1":noteImageView]))
+        
+   
+        
+    }
+    
+    
+    
     
 }
+
+
