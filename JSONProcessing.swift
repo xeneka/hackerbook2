@@ -47,6 +47,13 @@ func decode(books dicts: JSONArray){
     
     try! model?.dropAllData()
     
+    // Doy de alta el Tag Favoritos
+    
+    let _ = Tags(tag: "favorite", ordertg: "_favorite", inContext: (model?.context)!)
+    
+    
+    // Cargo los datos del JSON
+    
     do{
     _ = try dicts.flatMap{
         
@@ -66,6 +73,7 @@ func decode(books dicts: JSONArray){
         let nc = NotificationCenter.default
         
         nc.post(notification as Notification)
+        
         
         
        

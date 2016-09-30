@@ -9,6 +9,8 @@
 import UIKit
 import CoreData
 
+
+// Cojo el Modelo
 let model = CoreDataStack(modelName: "Model")
 
 @UIApplicationMain
@@ -43,6 +45,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             
 //            let nVC = BooksTableViewController(fetchedResultsController: fc as! NSFetchedResultsController<NSFetchRequestResult>, style: .plain)
          
+            
+           
+            
+            
             let nVC = BooksTableViewController(context: (model?.context)!)
             
             
@@ -56,7 +62,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             
         }else{
         
-        
+   
+            
         // si no se ha desargado
         
         nVC = LoadViewController()
@@ -127,6 +134,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         
     }
+    
+       
+    
 
 
 }

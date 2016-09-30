@@ -28,6 +28,18 @@ public class Tags: NSManagedObject {
         
     }
     
+    convenience init(tag:String, ordertg: String, inContext context:NSManagedObjectContext) {
+        
+        let entity = NSEntityDescription.entity(forEntityName: Tags.entityName, in: context)!
+        
+        self.init(entity:entity, insertInto:context)
+        
+        self.tag = tag
+        self.orderTag = ordertg
+        
+        
+        
+    }
     
     
 }

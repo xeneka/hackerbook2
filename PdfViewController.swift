@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreData
 
 class PdfViewController: UIViewController {
 
@@ -21,6 +22,7 @@ class PdfViewController: UIViewController {
     
     @IBAction func favorite(_ sender: AnyObject) {
         _booktag?.book?.favorite = !(_booktag?.book?.favorite)!
+        
     }
     
     @IBOutlet weak var pdfbook: UIWebView!
@@ -35,8 +37,17 @@ class PdfViewController: UIViewController {
     
     @IBAction func isFavorite(_ sender: AnyObject) {
         
-        _booktag?.book?.favorite = !(_booktag?.book?.favorite)!
         
+        // El libro no esta marcado como favorito
+        if (!(_booktag?.book?.favorite)!){
+           let _ = BookTag(book: (_booktag?.book)!, tag: selectFavoriteTag()!, inContext: (model?.context)!)
+            
+        }else{
+            deleteFavoriteTag()
+        }
+        
+        
+        _booktag?.book?.favorite = !(_booktag?.book?.favorite)!
     }
     
     
@@ -78,7 +89,6 @@ class PdfViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-
     
 
 }
@@ -104,7 +114,62 @@ extension PdfViewController{
         
     }
     
+}
+
+
+//MARK: -  util
+
+extension PdfViewController{
+
+
+    func selectFavoriteTag() -> Tags? {
+        let fetch = NSFetchRequest<Tags>(entityName: "Tags")
+        let predicate = NSPredicate(format: "tag == %@", "favorite")
+        let sort = NSSortDescriptor(key: "tag", ascending: true)
+        //let tagFavorite:[Tags]?
+        fetch.predicate = predicate
+        fetch.sortDescriptors = [sort]
+        do{
+            let tagFavorite = try model?.context.fetch(fetch)
+            return (tagFavorite?.first)!
+        }catch let error {
+            print(error)
+        }
+        
+        return nil
+        
+    }
     
+    func deleteFavoriteTag(){
+        let fetch = NSFetchRequest<BookTag>(entityName: BookTag.entityName)
+        let tagPredicate = NSPredicate(format: "tags.orderTag == %@", "_favorite")
+        let bookPredicate = NSPredicate(format: "book == %@", (_booktag?.book)!)
+        let filter = NSCompoundPredicate(andPredicateWithSubpredicates: [tagPredicate, bookPredicate])
+        let sort = NSSortDescriptor(key: "tags.tag" ,ascending:true)
+        
+        
+        fetch.predicate = filter
+        fetch.sortDescriptors = [sort]
+        
+        let borrar = try! model?.context.fetch(fetch)
+        
+        for each in borrar! {
+            
+            
+            model?.context.delete(each)
+        }
+       
+        
+        
+        
+        
+        
+        
+        
+        
+        
+    }
     
+
 }
 

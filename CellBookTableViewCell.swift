@@ -74,9 +74,22 @@ extension CellBookTableViewCell{
     }
     
     func syncViewWithModel(){
-        imageBook.image = UIImage(data: self._booktag?.book?.images?.image as! Data)
-        bookTitle.text = self._booktag?.book?.title
-        favoriteImage.isHidden = !(_booktag?.book?.favorite)!
+        
+        if let imageB = self._booktag?.book?.images?.image {
+            
+            imageBook.image = UIImage(data: imageB as Data)
+            
+        }
+        
+        if let favorite = _booktag?.book?.favorite {
+            
+            favoriteImage.isHidden = !favorite
+        }
+        
+        
+            bookTitle.text = self._booktag?.book?.title
+        
+    
         
     }
     
