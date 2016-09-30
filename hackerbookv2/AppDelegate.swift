@@ -29,7 +29,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         // Verifico si ya la url ya se ha descargado, si no se ha descargado lo descargo 
         
-        let descarga = false
+         var descarga = false
+        
+        let datosInStore = UserDefaults.standard
+        
+        if let dataS = datosInStore.string(forKey: "hackerbook") {
+            
+            descarga = true
+        }
+        
+        
+       
         
         if (descarga){
             
@@ -40,14 +50,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             
             let fc = NSFetchedResultsController(fetchRequest: fr, managedObjectContext: (model?.context)!, sectionNameKeyPath: "tags.orderTag", cacheName: nil)
             
-            
-            
-            
-//            let nVC = BooksTableViewController(fetchedResultsController: fc as! NSFetchedResultsController<NSFetchRequestResult>, style: .plain)
-         
-            
-           
-            
+        
             
             let nVC = BooksTableViewController(context: (model?.context)!)
             
@@ -62,8 +65,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             
         }else{
         
-   
-            
         // si no se ha desargado
         
         nVC = LoadViewController()
@@ -85,17 +86,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             
             
             do {
-            let jsonDicts = try JSONSerialization.jsonObject(with: parametro as! Data, options: JSONSerialization.ReadingOptions.mutableContainers) as? JSONArray
+                    let jsonDicts = try JSONSerialization.jsonObject(with: parametro as! Data, options: JSONSerialization.ReadingOptions.mutableContainers) as? JSONArray
                 
-                try decode(books: jsonDicts!)
+                    try decode(books: jsonDicts!)
                 
                 
-            }catch{
+                }catch{
                 print("Error")
+                }
             }
-        }
         
         
+            datosInStore.setValue("Hack", forKeyPath: "hackerbook")
+            
         }
         
        
