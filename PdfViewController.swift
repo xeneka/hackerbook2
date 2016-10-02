@@ -68,6 +68,16 @@ class PdfViewController: UIViewController {
         
         
     }
+
+    
+    @IBAction func notesInMap(_ sender: AnyObject) {
+        
+        let nVC = NoteMapViewController()
+        navigationController?.pushViewController(nVC, animated: true)
+      
+        
+    }
+    
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")

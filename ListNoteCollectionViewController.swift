@@ -89,6 +89,10 @@ class ListNoteCollectionViewController: UICollectionViewController,UICollectionV
         return CGSize(width:150, height: 200)
         
     }
+    
+    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        print("Celda seleccionada")
+    }
    
 
     // MARK: UICollectionViewDelegate

@@ -31,4 +31,7 @@ public class Authors: NSManagedObject {
         
     }
     
+    
+    
+    
 }

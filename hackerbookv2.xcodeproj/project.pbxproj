@@ -18,6 +18,8 @@
 		A967394E1D95348400B8C49F /* NoteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A967394C1D95348400B8C49F /* NoteViewController.swift */; };
 		A967394F1D95348400B8C49F /* NoteViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A967394D1D95348400B8C49F /* NoteViewController.xib */; };
 		A967F8DC1D8BF12A00535FC4 /* JSONProcessing.swift in Sources */ = {isa = PBXBuildFile; fileRef = A967F8DB1D8BF12A00535FC4 /* JSONProcessing.swift */; };
+		A96BAFF21D9F910E00A4DDE4 /* NoteMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A96BAFF01D9F910E00A4DDE4 /* NoteMapViewController.swift */; };
+		A96BAFF31D9F910E00A4DDE4 /* NoteMapViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A96BAFF11D9F910E00A4DDE4 /* NoteMapViewController.xib */; };
 		A98941151D8686060041F408 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A98941141D8686060041F408 /* AppDelegate.swift */; };
 		A98941171D8686060041F408 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A98941161D8686060041F408 /* ViewController.swift */; };
 		A989411A1D8686060041F408 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A98941181D8686060041F408 /* Main.storyboard */; };
@@ -61,6 +63,8 @@
 		A967394C1D95348400B8C49F /* NoteViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoteViewController.swift; sourceTree = "<group>"; };
 		A967394D1D95348400B8C49F /* NoteViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NoteViewController.xib; sourceTree = "<group>"; };
 		A967F8DB1D8BF12A00535FC4 /* JSONProcessing.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONProcessing.swift; sourceTree = "<group>"; };
+		A96BAFF01D9F910E00A4DDE4 /* NoteMapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoteMapViewController.swift; sourceTree = "<group>"; };
+		A96BAFF11D9F910E00A4DDE4 /* NoteMapViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NoteMapViewController.xib; sourceTree = "<group>"; };
 		A98941111D8686060041F408 /* hackerbookv2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = hackerbookv2.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A98941141D8686060041F408 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A98941161D8686060041F408 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -164,6 +168,8 @@
 				A967394C1D95348400B8C49F /* NoteViewController.swift */,
 				A967394D1D95348400B8C49F /* NoteViewController.xib */,
 				A9C072891D9937BC00A593B7 /* ListNoteCollectionViewController.swift */,
+				A96BAFF01D9F910E00A4DDE4 /* NoteMapViewController.swift */,
+				A96BAFF11D9F910E00A4DDE4 /* NoteMapViewController.xib */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -310,6 +316,7 @@
 				A989411F1D8686060041F408 /* LaunchScreen.storyboard in Resources */,
 				A9F9BBDD1D97AD1B00DD57F7 /* start.jpg in Resources */,
 				A94004BD1D8FE66200DCDE57 /* emptyPdf.pdf in Resources */,
+				A96BAFF31D9F910E00A4DDE4 /* NoteMapViewController.xib in Resources */,
 				A989411C1D8686060041F408 /* Assets.xcassets in Resources */,
 				A9FCDA071D93FE34006542F6 /* PdfViewController.xib in Resources */,
 				A9FCDA0B1D945919006542F6 /* favorites.png in Resources */,
@@ -353,6 +360,7 @@
 				A9A888861D8EA7EC0071A7AD /* CoreDataStack.swift in Sources */,
 				A99077B61D91221400B3E2FE /* BookTag+CoreDataClass.swift in Sources */,
 				A9A8887D1D8E74F30071A7AD /* Tags+CoreDataClass.swift in Sources */,
+				A96BAFF21D9F910E00A4DDE4 /* NoteMapViewController.swift in Sources */,
 				A9A888771D8E74F30071A7AD /* PdfBook+CoreDataClass.swift in Sources */,
 				A9A888811D8E74F30071A7AD /* Books+CoreDataClass.swift in Sources */,
 			);

@@ -43,6 +43,12 @@
                                 <action selector="isFavorite:" destination="-1" id="ZKT-YX-Ezh"/>
                             </connections>
                         </barButtonItem>
+                        <barButtonItem style="plain" systemItem="flexibleSpace" id="C26-bn-GJ0"/>
+                        <barButtonItem title="Map" id="4r2-50-6H0">
+                            <connections>
+                                <action selector="notesInMap:" destination="-1" id="wRw-Ic-Ut7"/>
+                            </connections>
+                        </barButtonItem>
                     </items>
                 </toolbar>
             </subviews>
