@@ -71,12 +71,19 @@ class BooksTableViewController: CoreDataTableViewController {
         guard let bookTagRecover = recoverObjFromUserDefault(key: "lastBook") else{
                 return
             }
+            
+        let datos = bookTagRecover as! BookTag
         
-        // Envio al Controlador
+            if( datos.book?.title != nil){
+               
+                // Envio al Controlador
+                
+                let nVC = PdfViewController(bookTag: bookTagRecover as! BookTag)
+                
+                navigationController?.pushViewController(nVC, animated: true)
+            }
+            
         
-        let nVC = PdfViewController(bookTag: bookTagRecover as! BookTag)
-        
-        navigationController?.pushViewController(nVC, animated: true)
         
         }
     }

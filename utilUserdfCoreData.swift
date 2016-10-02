@@ -63,7 +63,7 @@ func recoverObjFromUserDefault(key:String) -> AnyObject?{
         
         do{
         let result = try model?.context.fetch(req)
-            
+        
             return result?.last
             
         }catch{
