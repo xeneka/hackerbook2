@@ -20,6 +20,14 @@ class PdfViewController: UIViewController {
         
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        
+        super.viewWillAppear(true)
+        self.title = _booktag?.book?.title
+       
+        
+    }
+    
     @IBAction func favorite(_ sender: AnyObject) {
         _booktag?.book?.favorite = !(_booktag?.book?.favorite)!
         

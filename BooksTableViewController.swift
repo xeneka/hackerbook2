@@ -13,6 +13,7 @@ class BooksTableViewController: CoreDataTableViewController {
 
     fileprivate var fr = NSFetchRequest<BookTag>(entityName: BookTag.entityName)
     fileprivate var searchBar:UISearchBar?
+    static var reenviar = true
     
     
     // inicializo clase para utilizar el contexto
@@ -45,6 +46,10 @@ class BooksTableViewController: CoreDataTableViewController {
         
         // Do any additional setup after loading the view.
     }
+    
+    
+    
+    
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -56,6 +61,21 @@ class BooksTableViewController: CoreDataTableViewController {
         super.viewWillAppear(true)
         upSearchBar()
         
+        // Compruebo si habia leido un libro anterior mente lo cargo y hago un push
+        
+        if (BooksTableViewController.reenviar){
+        
+        BooksTableViewController.reenviar=false
+            
+        let bookTagRecover = recoverObjFromUserDefault(key: "lastBook") as! BookTag
+        
+        // Envio al Controlador
+        
+        let nVC = PdfViewController(bookTag: bookTagRecover)
+        
+        navigationController?.pushViewController(nVC, animated: true)
+        
+        }
     }
     
     
@@ -82,7 +102,14 @@ class BooksTableViewController: CoreDataTableViewController {
         
         let booktag = fetchedResultsController?.object(at: indexPath) as! BookTag
         
-        print("*****",booktag.book?.download,booktag.book?.favorite)
+        
+        // Grabo el ultimo libro seleccionado
+        
+        
+        saveObjData(obj: booktag, key: "lastBook")
+        
+
+        // Envio al Controlador
         
         let nVC = PdfViewController(bookTag: booktag)
         
