@@ -77,10 +77,12 @@ extension CellBookTableViewCell{
         
         if let imageB = self._booktag?.book?.images?.image {
             
-            imageBook.image = UIImage(data: imageB as Data)
+            imageBook.image = UIImage(data: self._booktag?.book?.images?.image as! Data)
             
         }
         
+       
+                
         if let favorite = _booktag?.book?.favorite {
             
             favoriteImage.isHidden = !favorite

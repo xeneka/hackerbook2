@@ -67,11 +67,14 @@ class BooksTableViewController: CoreDataTableViewController {
         
         BooksTableViewController.reenviar=false
             
-        let bookTagRecover = recoverObjFromUserDefault(key: "lastBook") as! BookTag
+            
+        guard let bookTagRecover = recoverObjFromUserDefault(key: "lastBook") else{
+                return
+            }
         
         // Envio al Controlador
         
-        let nVC = PdfViewController(bookTag: bookTagRecover)
+        let nVC = PdfViewController(bookTag: bookTagRecover as! BookTag)
         
         navigationController?.pushViewController(nVC, animated: true)
         
