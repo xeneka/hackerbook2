@@ -287,6 +287,7 @@
 					A98941101D8686060041F408 = {
 						CreatedOnToolsVersion = 8.0;
 						DevelopmentTeam = KR3B4933S2;
+						LastSwiftMigration = 0800;
 						ProvisioningStyle = Automatic;
 					};
 				};

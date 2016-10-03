@@ -38,12 +38,18 @@
                             </connections>
                         </barButtonItem>
                         <barButtonItem style="plain" systemItem="flexibleSpace" id="sGs-L9-CHd"/>
-                        <barButtonItem image="favorites.png" id="AVx-TE-9JS">
+                        <barButtonItem systemItem="add" id="AVx-TE-9JS">
                             <connections>
                                 <action selector="isFavorite:" destination="-1" id="ZKT-YX-Ezh"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem style="plain" systemItem="flexibleSpace" id="C26-bn-GJ0"/>
+                        <barButtonItem systemItem="action" id="Jfz-ob-BIw">
+                            <connections>
+                                <action selector="sharedBook:" destination="-1" id="2hq-Hk-j5u"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem style="plain" systemItem="flexibleSpace" id="JlD-7h-Kr7"/>
                         <barButtonItem title="Map" id="4r2-50-6H0">
                             <connections>
                                 <action selector="notesInMap:" destination="-1" id="wRw-Ic-Ut7"/>
@@ -56,7 +62,4 @@
             <point key="canvasLocation" x="34.5" y="75.5"/>
         </view>
     </objects>
-    <resources>
-        <image name="favorites.png" width="16" height="16"/>
-    </resources>
 </document>

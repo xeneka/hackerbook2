@@ -8,6 +8,7 @@
 
 import UIKit
 import CoreData
+import Social
 
 class PdfViewController: UIViewController {
 
@@ -33,6 +34,38 @@ class PdfViewController: UIViewController {
         
     }
     
+    @IBAction func sharedBook(_ sender: AnyObject) {
+        
+        let alert = UIAlertController(title: "Sharing note...", message: nil, preferredStyle: .alert)
+        let twitterAction = UIAlertAction(title: "Share in Twitter", style: .default) { _ in
+            let vc = SLComposeViewController(forServiceType: SLServiceTypeTwitter)
+            vc?.setInitialText("\(self._booktag?.book?.title)")
+            if let photoToShare = UIImage(data: (self._booktag?.book?.images?.image)! as Data) {
+                vc?.add(photoToShare)
+            }
+            
+            self.present(vc!, animated: true, completion: nil)
+        }
+        alert.addAction(twitterAction)
+        
+        let facebookAction = UIAlertAction(title: "Share in Facebok", style: .default) { _ in
+            let vc = SLComposeViewController(forServiceType: SLServiceTypeFacebook)
+            vc?.setInitialText("\(self._booktag?.book?.title)")
+            if let photoToShare = UIImage(data: (self._booktag?.book?.images?.image)! as Data) {
+                vc?.add(photoToShare)
+            }
+            self.present(vc!, animated: true, completion: nil)
+        }
+        alert.addAction(facebookAction)
+        
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        alert.addAction(cancelAction)
+        
+        present(alert, animated: true, completion: nil)
+        
+        
+        
+    }
     @IBOutlet weak var pdfbook: UIWebView!
     
     
@@ -68,7 +101,7 @@ class PdfViewController: UIViewController {
         layout.itemSize = CGSize(width: 200, height: 200)
         
         
-        var nVC = ListNoteCollectionViewController(book: (_booktag?.book)!)
+        let nVC = ListNoteCollectionViewController(book: (_booktag?.book)!)
     
         //var nVC = ListNoteCollectionViewController(collectionViewLayout: layout)
         
