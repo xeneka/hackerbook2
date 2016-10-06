@@ -36,7 +36,7 @@
     <entity name="Image" representedClassName=".Image" syncable="YES">
         <attribute name="image" attributeType="Binary" storedInTruthFile="YES" syncable="YES"/>
         <relationship name="annotations" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="Annotations" inverseName="image" inverseEntity="Annotations" syncable="YES"/>
-        <relationship name="books" maxCount="1" deletionRule="Cascade" destinationEntity="Books" inverseName="images" inverseEntity="Books" syncable="YES"/>
+        <relationship name="books" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="Books" inverseName="images" inverseEntity="Books" syncable="YES"/>
     </entity>
     <entity name="PdfBook" representedClassName=".PdfBook" syncable="YES">
         <attribute name="dataPdf" attributeType="Binary" storedInTruthFile="YES" syncable="YES"/>
@@ -53,7 +53,7 @@
         <element name="Books" positionX="-380" positionY="-486" width="128" height="195"/>
         <element name="BookTag" positionX="-200" positionY="-192" width="128" height="75"/>
         <element name="Geo" positionX="-63" positionY="-228" width="128" height="30"/>
-        <element name="Image" positionX="-225" positionY="-264" width="128" height="30"/>
+        <element name="Image" positionX="-225" positionY="-264" width="128" height="90"/>
         <element name="PdfBook" positionX="-128" positionY="-126" width="128" height="30"/>
         <element name="Tags" positionX="-504" positionY="-273" width="128" height="90"/>
     </elements>

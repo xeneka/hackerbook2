@@ -79,6 +79,7 @@ class ListNoteCollectionViewController: UICollectionViewController,UICollectionV
        let note = notes[indexPath.row] as! Annotations
        
         cell.nameLabel.text=note.annontation
+        
         cell.noteImageView.image = UIImage(data: (note.image?.image)! as Data)
     
         return cell

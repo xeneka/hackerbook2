@@ -29,10 +29,15 @@ public class Annotations: NSManagedObject {
         self.dateModification = NSDate()
         self.books = book
         
-
+        let noteImage = Image(image: image, context: context)
         
-        _ = Image(image: image, note: self, context: context)
+        self.image = noteImage
+        
+        //_ = Image(image: image, note: self, context: context)
 
+        model?.save()
+        
+        
         
         }
         
@@ -95,7 +100,26 @@ extension Annotations{
          setupKVO()
         
         
+    }
+    
+    // Se llama un huevo de veces
+    public override func awakeFromFetch() {
+        super.awakeFromFetch()
         
+        setupKVO()
+        starGps()
+        
+        
+        
+    }
+    
+    public override func willTurnIntoFault() {
+        super.willTurnIntoFault()
+        
+        teardownKVO()
+    }
+    
+    public func starGps(){
         posicion.requestAlwaysAuthorization()
         posicion.requestWhenInUseAuthorization()
         
@@ -108,31 +132,26 @@ extension Annotations{
             // Configuro el location manager
             
             posicion.delegate = self
+            
             posicion.desiredAccuracy = kCLLocationAccuracyBest
             
             // Empieza a funcionar
             posicion.startUpdatingLocation()
             
-        
+            
             
         }else{
-         print("No tienes autorizacion para ejecutar Location Manager")
+            print("No tienes autorizacion para ejecutar Location Manager")
         }
         
+        
+        
+        
+        
+
     }
     
-    // Se llama un huevo de veces
-    public override func awakeFromFetch() {
-        super.awakeFromFetch()
-        
-        setupKVO()
-    }
     
-    public override func willTurnIntoFault() {
-        super.willTurnIntoFault()
-        
-        teardownKVO()
-    }
 }
 
 
@@ -140,6 +159,7 @@ extension Annotations:CLLocationManagerDelegate{
     
     
     public func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
+        
         print(Error.self)
     }
     

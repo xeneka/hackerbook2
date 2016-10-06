@@ -42,9 +42,10 @@ class NoteViewController: UIViewController {
     @IBOutlet weak var textNote: UITextField!
     @IBAction func saveNote(_ sender: AnyObject) {
         
+       
         let nota = Annotations(title: textNote.text!, image: UIImageJPEGRepresentation(photoImage.image!, 0.9)! as Data, book: (_bookTag?.book)!, inContext: (_bookTag?.managedObjectContext)!)
         
-      
+      model?.save()
     }
     
     @IBAction func takePhoto(_ sender: AnyObject) {

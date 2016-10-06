@@ -38,7 +38,15 @@ public class Image: NSManagedObject {
         self.image = image as NSData?
         
         
+    }
+    
+    convenience init(image:Data, context: NSManagedObjectContext){
+       
+        let entity = NSEntityDescription.entity(forEntityName: Image.entityName, in: context)!
         
+        self.init(entity:entity, insertInto:context)
+        
+        self.image = image as NSData?
         
     }
     
