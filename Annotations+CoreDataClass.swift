@@ -33,9 +33,7 @@ public class Annotations: NSManagedObject {
         
         self.image = noteImage
         
-        //_ = Image(image: image, note: self, context: context)
-
-        model?.save()
+        
         
         
         
@@ -81,6 +79,8 @@ extension Annotations{
         
         // actualizar modificationDate
         self.dateModification = NSDate()
+        starGps()
+        
        
     }
     
@@ -107,7 +107,7 @@ extension Annotations{
         super.awakeFromFetch()
         
         setupKVO()
-        starGps()
+       
         
         
         
@@ -164,18 +164,19 @@ extension Annotations:CLLocationManagerDelegate{
     }
     
     
-    public func locationManager(_ manager: CLLocationManager, didUpdateToLocations locations: [CLLocation]) {
+    @objc(locationManager:didUpdateLocations:) public func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         
         // Paramos que siga buscando la localiación. Consume mucha bateria
         
         self.posicion.stopUpdatingLocation()
         
+       
         
-        // Mandamos la nota
-        print(locations.last?.coordinate.latitude)
+        let notaGeo = Geo(location: locations.last!, nota: self, inContext: self.managedObjectContext!)
         
-        let _ = Geo(location: locations.last!, nota: self, inContext: self.managedObjectContext!)
         
+        
+        //self.geo = notaGeo
         
     }
     

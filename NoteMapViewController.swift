@@ -56,30 +56,30 @@ extension NoteMapViewController {
     
     func loadNoteInMap(){
     
-        struct notepin{
-           
-            
-        }
-        
         let fetch = NSFetchRequest<Annotations>(entityName: Annotations.entityName)
         let sort = NSSortDescriptor(key: "annontation", ascending: true)
         
+        do{
+        
         let result = try! model?.context.fetch(fetch)
         
-        for each in result! {
             
-           
+            var notes=[MKAnnotation]()
+            
+            for each in result! {
+                
+                let note = noteInMap(tag: each)
+                notes.append(note)
+            }
+        mapNote.addAnnotations(notes)
         
-            let note = noteInMap(tag: each)
-        
-            mapNote.addAnnotation(note)
-            
-
-            
-            
-            print(each.annontation,each.geo?.latitude)
-            
+        }catch {
+            print("Sindatos")
         }
+      
+        
+    
+       
     
     
     }
@@ -135,6 +135,10 @@ extension NoteMapViewController:MKMapViewDelegate{
         
     }
     
+    func mapAnotation(annotation:Annotations) -> MKAnnotation{
+        return noteInMap(tag: annotation)
+    }
+    
     
 }
 
@@ -154,7 +158,7 @@ class noteInMap:NSObject ,MKAnnotation{
             
         }else{
             
-            // Inicialmente hasta aclarar la duda del GPS que no funciona
+            
             
             coordinate = CLLocationCoordinate2D(latitude: 37.8833333, longitude: -4.7666667)
         }

@@ -29,8 +29,8 @@
         <relationship name="tags" maxCount="1" deletionRule="Nullify" destinationEntity="Tags" inverseName="booktag" inverseEntity="Tags" syncable="YES"/>
     </entity>
     <entity name="Geo" representedClassName=".Geo" syncable="YES">
-        <attribute name="latitude" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
-        <attribute name="longitude" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="latitude" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="longitude" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
         <relationship name="annotation" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="Annotations" inverseName="geo" inverseEntity="Annotations" syncable="YES"/>
     </entity>
     <entity name="Image" representedClassName=".Image" syncable="YES">
@@ -52,7 +52,7 @@
         <element name="Authors" positionX="-450" positionY="-117" width="128" height="75"/>
         <element name="Books" positionX="-380" positionY="-486" width="128" height="195"/>
         <element name="BookTag" positionX="-200" positionY="-192" width="128" height="75"/>
-        <element name="Geo" positionX="-63" positionY="-228" width="128" height="30"/>
+        <element name="Geo" positionX="-63" positionY="-228" width="128" height="90"/>
         <element name="Image" positionX="-225" positionY="-264" width="128" height="90"/>
         <element name="PdfBook" positionX="-128" positionY="-126" width="128" height="30"/>
         <element name="Tags" positionX="-504" positionY="-273" width="128" height="90"/>

@@ -23,27 +23,29 @@ public class Geo: NSManagedObject {
         self.init(entity:entity, insertInto:context)
      
        
-        nota.geo?.latitude = location.coordinate.latitude
-        nota.geo?.longitude = location.coordinate.longitude
         
-        let geoCoder = CLGeocoder()
+        self.latitude = location.coordinate.latitude
+        self.longitude = location.coordinate.longitude
+        self.annotation = nota
         
-        geoCoder.reverseGeocodeLocation(location) { (placemark, error) in
+//        let geoCoder = CLGeocoder()
+//        
+//        geoCoder.reverseGeocodeLocation(location) { (placemark, error) in
+//            
+//            if ((error) != nil){
+//                print ("Error en la localización inversa")
+//            }
+//            
+//            
+//            
+//            print("***",placemark?.description)
+//            
+//         }   
+        
             
-            if ((error) != nil){
-                print ("Error en la localización inversa")
-            }
             
             
-            
-            print("***",placemark?.description)
-            
-            
-            
-            
-            
-            
-        }
+        
         
     }
     
