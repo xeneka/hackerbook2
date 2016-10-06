@@ -36,7 +36,7 @@ class PdfViewController: UIViewController {
     
     @IBAction func sharedBook(_ sender: AnyObject) {
         
-        let alert = UIAlertController(title: "Sharing note...", message: nil, preferredStyle: .alert)
+        let alert = UIAlertController(title: "Comparte el Libro", message: nil, preferredStyle: .alert)
         let twitterAction = UIAlertAction(title: "Share in Twitter", style: .default) { _ in
             let vc = SLComposeViewController(forServiceType: SLServiceTypeTwitter)
             vc?.setInitialText("\(self._booktag?.book?.title)")

@@ -135,9 +135,7 @@ extension NoteMapViewController:MKMapViewDelegate{
         
     }
     
-    func mapAnotation(annotation:Annotations) -> MKAnnotation{
-        return noteInMap(tag: annotation)
-    }
+   
     
     
 }
